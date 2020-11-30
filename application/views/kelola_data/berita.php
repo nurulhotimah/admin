@@ -46,6 +46,12 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted"><?= ($B['tanggal']); ?></small>
+                            <a href="">
+                                <?php echo anchor('berita/edit/' . $B['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
+                            </a>
+                            <a onclick="javascript:return confirm('anda yakin ingin menghapusnya?')">
+                                <?php echo anchor('berita/hapus/' . $B['id'], '<div class="btn btn-danger btn-sm ml-3"><i class="fa fa-trash"></i></div>') ?>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -58,6 +64,12 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted"><?= ($B['tanggal']); ?></small>
+                            <a href="">
+                                <?php echo anchor('berita/edit/' . $B['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
+                            </a>
+                            <a onclick="javascript:return confirm('anda yakin ingin menghapusnya?')">
+                                <?php echo anchor('berita/hapus/' . $B['id'], '<div class="btn btn-danger btn-sm ml-3"><i class="fa fa-trash"></i></div>') ?>
+                            </a>
                         </div>
                     </div>
                 </div>
