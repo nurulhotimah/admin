@@ -20,6 +20,8 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Upload Foto</label>
+                        <input type="file" name="tanggal" class="form-control" value="<?= base_url('assets/foto/') . $B['gambar']; ?>">
+
                         <input type="file" name="gambar" class="form-control">
                     </div>
 
