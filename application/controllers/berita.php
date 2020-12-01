@@ -73,6 +73,21 @@ class Berita extends CI_Controller
         $id             = $this->input->post('id');
         $judul          = $this->input->post('judul');
         $tanggal        = $this->input->post('tanggal');
+        $gambar         = $_FILES['gambar'];
+
+        if ($gambar = '') {
+        } else {
+            $config['upload_path'] = './assets/foto';
+            $config['allowed_types'] = 'jpg|png|give';
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('gambar')) {
+                echo "Upload Gagal";
+                die();
+            } else {
+                $gambar = $this->upload->data('file_name');
+            }
+        }
 
 
 
