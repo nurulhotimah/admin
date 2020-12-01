@@ -18,11 +18,21 @@
                         <input type="date" name="tanggal" class="form-control" value="<?php echo $B->tanggal ?>">
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Upload Foto</label>
-                        <input type="file" name="tanggal" class="form-control" value="<?= base_url('assets/foto/') . $B['gambar']; ?>">
-
-                        <input type="file" name="gambar" class="form-control">
+                    <div class="form-group row">
+                        <div class="col-sm-2">Picture</div>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="<?= base_url('assets/foto/') . $B->gambar ?>" class="img-thumbnail">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="image" name="gambar">
+                                        <label class="custom-file-label" for="image">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
