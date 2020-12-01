@@ -97,6 +97,7 @@ class Berita extends CI_Controller
 
             'judul'             => $judul,
             'tanggal'           => $tanggal,
+            'gambar'            => $gambar
 
 
 
