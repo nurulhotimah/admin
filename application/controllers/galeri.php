@@ -7,7 +7,7 @@ class Galeri extends CI_Controller
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // untuk menampilkan data dari database
-        $data['db_smk_pelnus'] = $this->m_galeri->tampil_data()->result();
+        $data['galeri'] = $this->m_galeri->tampil_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
