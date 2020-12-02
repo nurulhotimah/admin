@@ -13,7 +13,7 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div class="sidebar-heading" style="">
         Administrator
     </div>
 
