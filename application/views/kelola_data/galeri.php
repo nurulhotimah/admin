@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-5">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($B['gambar']); ?>" class="card-img-top">
+                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><?= ($G['judul']); ?></h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -39,7 +39,7 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($B['gambar']); ?>" class="card-img-top">
+                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><?= ($G['judul']); ?></h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($B['gambar']); ?>" class="card-img-top">
+                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title"><?= ($G['judul']); ?></h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
