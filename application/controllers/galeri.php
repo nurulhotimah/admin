@@ -3,14 +3,14 @@ class Galeri extends CI_Controller
 {
     public  function index()
     {
-        $data['title'] = 'Galei';
+        $data['title'] = 'Galeri';
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // untuk menampilkan data dari database
         $data['galeri'] = $this->m_galeri->tampil_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/topbar');
         $this->load->view('kelola_data/galeri', $data);
         $this->load->view('templates/footer');
     }
