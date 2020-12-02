@@ -12,6 +12,7 @@ class auth extends CI_Controller
 
     public function index()
     {
+        // agar tidak kembali ke page login
         if ($this->session->userdata('email')) {
             redirect('user');
         }
@@ -68,6 +69,8 @@ class auth extends CI_Controller
     }
     public function registration()
     {
+        // agar tidak kembali ke page login
+        
         if ($this->session->userdata('email')) {
             redirect('user');
         }

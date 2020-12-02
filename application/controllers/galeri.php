@@ -10,7 +10,7 @@ class Galeri extends CI_Controller
         $data['galeri'] = $this->m_galeri->tampil_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/topbar', $data);
         $this->load->view('kelola_data/galeri', $data);
         $this->load->view('templates/footer');
     }
