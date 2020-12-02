@@ -4,7 +4,7 @@ if(flashData){
     Swal.fire({
         title: 'Berita ' ,
         text: 'Berhasil ' + flashData,
-        type: 'succes',
+        icon: 'success',
     });
 }
 

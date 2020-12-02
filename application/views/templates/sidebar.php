@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion " id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -61,6 +61,8 @@
                 <a class="collapse-item" href="#">Data Siswa</a>
                 <a class="collapse-item" href="<?= base_url('berita'); ?>">Berita</a>
                 <a class="collapse-item" href="<?= base_url('galeri'); ?>">Galeri</a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Data Guru</a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Prestasi</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
