@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
-        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Berita</button>
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Galeri</button>
 
         <!-- query berita -->
         <?php
