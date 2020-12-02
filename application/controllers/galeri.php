@@ -44,13 +44,13 @@ class Galeri extends CI_Controller
 
         );
 
-        $this->m_berita->input_data($data, 'berita');
-        redirect('berita/index');
+        $this->m_galeri->input_data($data, 'galeri');
+        redirect('galeri/index');
     }
     public function hapus($id)
     {
         $where = array('id' => $id);
-        $this->m_berita->hapus_data($where, 'berita');
-        redirect('berita/index');
+        $this->m_galeri->hapus_data($where, 'galeri');
+        redirect('galeri/index');
     }
 }
