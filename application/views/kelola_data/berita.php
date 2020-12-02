@@ -1,6 +1,7 @@
 <!-- Begin Page Content -->
 <div class="content-wrapper">
     <div class="container-fluid">
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
 
 
         <!-- Page Heading -->
