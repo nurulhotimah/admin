@@ -16,14 +16,15 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
+                <div class="mt-4">
+                    <?php
+                    echo date('D, d-m-Y');
 
-                <?php
-                echo date('D, d-m-Y');
-
-                ?>
+                    ?>
+                </div>
 
                 <div class="topbar-divider d-none d-sm-block"></div>
-                <!-- waktu jam -->
+
 
 
                 <!-- Nav Item - User Information -->
