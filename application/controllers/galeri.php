@@ -45,6 +45,8 @@ class Galeri extends CI_Controller
         );
 
         $this->m_galeri->input_data($data, 'galeri');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Galeri Berhasil di Tambahkan!
+        </div>');
         redirect('galeri/index');
     }
     public function hapus($id)
