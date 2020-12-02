@@ -60,7 +60,7 @@
 
                 <a class="collapse-item" href="#">Data Siswa</a>
                 <a class="collapse-item" href="<?= base_url('berita'); ?>">Berita</a>
-                <a class="collapse-item" href="forgot-password.html">Galeri</a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Galeri</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
