@@ -6,8 +6,8 @@ class M_galeri extends CI_Model
     {
         return $this->db->get('galeri');
     }
-    public function input_data()
+    public function input_data($data, $table)
     {
-        $this->db->insert('galeri');
+        $this->db->insert($table, $data);
     }
 }
