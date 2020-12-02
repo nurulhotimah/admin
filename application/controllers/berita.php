@@ -46,6 +46,7 @@ class Berita extends CI_Controller
         );
 
         $this->m_berita->input_data($data, 'berita');
+
         redirect('berita/index');
     }
     public function hapus($id)
