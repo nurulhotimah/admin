@@ -111,6 +111,7 @@ class Berita extends CI_Controller
             'id'            => $id
         );
         $this->m_berita->update_data($where, $data, 'berita');
+        $this->session->set_flashdata('flash', 'Diubah');
         redirect('berita/index');
     }
 }

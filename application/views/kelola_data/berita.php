@@ -32,7 +32,7 @@
                             <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i>
 
                             </a>
-                            <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-5" onclick="return confirm('Anda yakin ingin menghapusnya?');"><i class="fa fa-trash"></i>
+                            <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus"><i class="fa fa-trash"></i>
 
                             </a>
                         </div>
