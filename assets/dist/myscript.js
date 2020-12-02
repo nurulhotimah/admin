@@ -1,6 +1,6 @@
 const flashData = $('.flash-data').data('flashdata');
 if(flashData){
-    Swall({
+    Swal.fire({
         title: 'Data Berhasil' + flashData,
         text: '',
         type: 'succes',

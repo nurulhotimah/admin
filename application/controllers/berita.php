@@ -46,6 +46,7 @@ class Berita extends CI_Controller
         );
 
         $this->m_berita->input_data($data, 'berita');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
 
         redirect('berita/index');
     }
@@ -53,6 +54,7 @@ class Berita extends CI_Controller
     {
         $where = array('id' => $id);
         $this->m_berita->hapus_data($where, 'berita');
+        $this->session->set_flashdata('flash', 'Dihapus');
         redirect('berita/index');
     }
     public function edit($id)
