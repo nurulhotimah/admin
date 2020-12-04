@@ -19,14 +19,15 @@
         <!-- looping berita -->
 
         <?php foreach ($Berita as $B) : ?>
+            <!-- section berita terbaru -->
+            <br>
             <section id="berita">
                 <div class="container">
-
                     <div class="section-body">
                         <div class="row">
-                            <div class="col-md">
+                            <div class="col-md-4">
                                 <div class="section-thumbnail">
-                                    <a href=""><img src="assets/image/santunan.jpg" alt=""></a>
+                                    <a href=""><img src="assets/img/profile/default.png" alt=""></a>
                                     <div class="tanggal">
                                         <span class="tgl">14</span>
                                         <span class="tgl-2">Okt, 2020</span>
@@ -50,13 +51,16 @@
                             </div>
 
 
-                            <div class="tombol-selengkapnya">
-                                <a href="#" class="btn btn-more">Lihat Berita Lainnya Lainnya</a>
-                            </div>
                         </div>
+
                     </div>
-                </div><!-- container -->
+                    <div class="tombol-selengkapnya">
+                        <a href="#" class="btn btn-more">Lihat Berita Lainnya Lainnya</a>
+                    </div>
+                </div> <!-- container -->
             </section>
+
+
             <!-- <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-5">
