@@ -19,7 +19,45 @@
         <!-- looping berita -->
 
         <?php foreach ($Berita as $B) : ?>
-            <div class="row">
+            <section id="berita">
+                <div class="container">
+
+                    <div class="section-body">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="section-thumbnail">
+                                    <a href=""><img src="assets/image/santunan.jpg" alt=""></a>
+                                    <div class="tanggal">
+                                        <span class="tgl">14</span>
+                                        <span class="tgl-2">Okt, 2020</span>
+                                    </div>
+                                </div>
+
+                                <div class="section-content">
+                                    <a href="">
+                                        <h3>SMK Berbagi</h3>
+                                    </a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, incidunt.
+                                        Incidunt laborum animi odio beatae velit expedita voluptates
+                                        neque vitae harum qui esse, repellat cupiditate ut at totam eum <a href="" class="more">[..]</a>
+                                    </p>
+                                </div>
+                                <div class="section-meta">
+                                    <a href="">Kegiatan</a>
+                                    <a href=""><i class="fas fa-user"></i>Admin</a>
+                                </div>
+                            </div>
+
+
+                            <div class="tombol-selengkapnya">
+                                <a href="#" class="btn btn-more">Lihat Berita Lainnya Lainnya</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- container -->
+            </section>
+            <!-- <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-5">
                         <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($B['gambar']); ?>" class="card-img-top">
@@ -41,7 +79,7 @@
                 </div>
 
 
-            </div>
+            </div> -->
 
 
         <?php endforeach ?>
