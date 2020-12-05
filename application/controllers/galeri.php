@@ -45,14 +45,14 @@ class Galeri extends CI_Controller
         );
 
         $this->m_galeri->input_data($data, 'galeri');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Galeri Berhasil di Tambahkan!
-        </div>');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
         redirect('galeri/index');
     }
     public function hapus($id)
     {
         $where = array('id' => $id);
         $this->m_galeri->hapus_data($where, 'galeri');
+        $this->session->set_flashdata('flash', 'Dihapus');
         redirect('galeri/index');
     }
 }

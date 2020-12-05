@@ -6,8 +6,7 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
         <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Galeri</button>
-        <?= $this->session->flashdata('message'); ?>
-
+        <div class="flash-data" data-flashdata2="<?= $this->session->flashdata('flash'); ?>"></div>
         <!-- query berita -->
         <?php
         $queryGaleri = "SELECT * FROM galeri";
@@ -20,48 +19,53 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-5">
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                                <a href="" class="btn btn-circle ml-5" data-toggle="modal" data-target="#staticBackdrop">...</a>
+                            </div>
+
+
+
+                            <!-- Modal edit dan hapus-->
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Aksi</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <a href="">
+                                                <?php echo anchor('galeri/edit/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
+                                            </a>
+                                            <a onclick="javascript:return confirm('anda yakin ingin menghapusnya?')">
+                                                <?php echo anchor('galeri/hapus/' . $G['id'], '<div class="btn btn-danger btn-sm ml-3"><i class="fa fa-trash"></i></div>') ?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- akhir modal edit dan hapus -->
+
+                        </div>
                         <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
+
                         <div class="card-body">
                             <h5 class="card-title"><?= ($G['judul']); ?></h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted"><?= ($G['tanggal']); ?></small>
-                            <a href="">
-                                <?php echo anchor('galeri/edit/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
-                            </a>
-                            <a onclick="javascript:return confirm('anda yakin ingin menghapusnya?')">
-                                <?php echo anchor('galeri/hapus/' . $G['id'], '<div class="btn btn-danger btn-sm ml-3"><i class="fa fa-trash"></i></div>') ?>
-                            </a>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= ($G['judul']); ?></h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"><?= ($G['tanggal']); ?></small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= ($G['judul']); ?></h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"><?= ($G['tanggal']); ?></small>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
 
@@ -114,3 +118,4 @@
             </div>
             <!-- End of Main Content -->
         </div>
+    </div>

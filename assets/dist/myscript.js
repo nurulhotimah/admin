@@ -28,4 +28,15 @@ $('.tombol-hapus').on('click', function(e){
         }
       })
 
-})
+});
+
+
+const flashData2 = $('.flash-data2').data('flashdata2');
+
+if(flashData2){
+    Swal.fire({
+        title: 'Galeri ' ,
+        text: 'Berhasil ' + flashData2,
+        icon: 'success',
+    });
+}

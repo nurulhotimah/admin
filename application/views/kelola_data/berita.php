@@ -12,7 +12,7 @@
 
         <!-- query berita -->
         <?php
-        $queryBerita = "SELECT * FROM berita";
+        $queryBerita = "SELECT * FROM berita ORDER BY tanggal DESC";
         $Berita = $this->db->query($queryBerita)->result_array();
         ?>
 
