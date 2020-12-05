@@ -1,7 +1,5 @@
 /* css untuk berita */
-#berita .row:first-of-type {
-	margin-bottom: 30px;
-}
+#berita 
 
 .section-thumbnail {
 	width: 100%;
@@ -82,5 +80,6 @@
 }
 
 #berita .tombol-selengkapnya {
-	margin-top: 50px;
+    margin-top: 50px;
+    text-align: center;
 }
