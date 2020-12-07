@@ -25,7 +25,31 @@
                                 <a href="" class="btn btn-circle ml-5" data-toggle="modal" data-target="#staticBackdrop">...</a>
                             </div>
 
+                            <!-- Modal edit dan hapus-->
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Aksi</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
 
+                                        <div class="modal-footer">
+                                            <a href="">
+                                                <?php echo anchor('galeri/edit_galeri/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
+                                            </a>
+                                            </a>
+                                            <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus2"><i class="fa fa-trash"></i>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- akhir modal edit dan hapus -->
+                            
 
 
 
@@ -92,30 +116,7 @@
 
 
 
-                    <!-- Modal edit dan hapus-->
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Aksi</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
 
-                                <div class="modal-footer">
-                                    <a href="">
-                                        <?php echo anchor('galeri/edit_galeri/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
-                                    </a>
-                                    </a>
-                                    <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus2"><i class="fa fa-trash"></i>
-
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- akhir modal edit dan hapus -->
 
 
                 </div>

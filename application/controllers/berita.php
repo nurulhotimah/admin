@@ -48,7 +48,7 @@ class Berita extends CI_Controller
         $this->m_berita->input_data($data, 'berita');
         $this->session->set_flashdata('flash', 'Ditambahkan');
 
-        redirect('berita/berita/index');
+        redirect('berita/index');
     }
     public function hapus($id)
     {

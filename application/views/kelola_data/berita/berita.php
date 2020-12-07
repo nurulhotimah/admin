@@ -10,44 +10,47 @@
         <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
         <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Berita</button>
 
-        <!-- query berita -->
-        <?php
-        $queryBerita = "SELECT * FROM berita ORDER BY tanggal DESC";
-        $Berita = $this->db->query($queryBerita)->result_array();
-        ?>
+
 
         <!-- looping berita -->
 
-        <?php foreach ($Berita as $B) : ?>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Gambar</th>
+
+                    <th scope="col" colspan="2">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($Berita as $B) : ?>
+                    <tr>
+                        <td><?php echo $B->id ?></td>
+                        <td><?php echo $B->judul ?></td>
+                        <td><?php echo $B->tanggal ?></td>
+                        <td><?php echo $B->gambar ?></td>
+
+                        <td><?php echo anchor('berita/detail/' . $B->id, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                        <td onclick="javascript:return confirm('anda yakin ingin menghapusnya?')"><?php echo anchor('berita/hapus/' . $B->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                        <td><?php echo anchor('berita/edit/' . $B->id, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                    </tr>
+                <?php endforeach; ?>
 
 
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-5">
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($B['gambar']); ?>" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= ($B['judul']); ?></h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"><?= ($B['tanggal']); ?></small>
-                            <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i>
 
-                            </a>
-                            <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus"><i class="fa fa-trash"></i>
-
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+            </tbody>
+        </table>
 
 
-            </div>
 
 
-        <?php endforeach ?>
+
 
 
         <!-- Modal -->

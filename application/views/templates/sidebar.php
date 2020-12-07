@@ -61,7 +61,7 @@
                 <a class="collapse-item" href="#">Data Siswa</a>
                 <a class="collapse-item" href="<?= base_url('berita'); ?>">Berita</a>
                 <a class="collapse-item" href="<?= base_url('galeri'); ?>">Galeri</a>
-                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Data Guru</a>
+                <a class="collapse-item" href="<?= base_url('guru'); ?>">Data Guru</a>
                 <a class="collapse-item" href="<?= base_url('galeri'); ?>">Prestasi</a>
                 <div class="collapse-divider"></div>
             </div>
