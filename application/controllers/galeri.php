@@ -11,7 +11,7 @@ class Galeri extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/galeri', $data);
+        $this->load->view('kelola_data/galeri/galeri', $data);
         $this->load->view('templates/footer');
     }
     public function tambah_aksi()

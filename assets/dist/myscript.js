@@ -4,7 +4,7 @@ if(flashData){
     Swal.fire({
         title: 'Berita ' ,
         text: 'Berhasil ' + flashData,
-        icon: 'success',
+        icon: 'success'
     });
 }
 
@@ -38,5 +38,27 @@ if(flashData2){
         title: 'Galeri ' ,
         text: 'Berhasil ' + flashData2,
         icon: 'success',
-    });
+    })
 }
+
+// tombol hapus
+$('.tombol-hapus2').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Galeri akan dihapus",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Galeri'
+      }).then((result) => {
+        if (result.value) {
+          
+            document.location.href = href;
+          
+        }
+      })
+
+});

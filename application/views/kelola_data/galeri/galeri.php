@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
         <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Galeri</button>
-        <div class="flash-data" data-flashdata2="<?= $this->session->flashdata('flash'); ?>"></div>
+        <div class="flash-data2" data-flashdata2="<?= $this->session->flashdata('flash'); ?>"></div>
         <!-- query berita -->
         <?php
         $queryGaleri = "SELECT * FROM galeri";
@@ -27,29 +27,7 @@
 
 
 
-                            <!-- Modal edit dan hapus-->
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Aksi</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
 
-                                        <div class="modal-footer">
-                                            <a href="">
-                                                <?php echo anchor('galeri/edit/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
-                                            </a>
-                                            <a onclick="javascript:return confirm('anda yakin ingin menghapusnya?')">
-                                                <?php echo anchor('galeri/hapus/' . $G['id'], '<div class="btn btn-danger btn-sm ml-3"><i class="fa fa-trash"></i></div>') ?>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- akhir modal edit dan hapus -->
 
                         </div>
                         <img src="<?php echo base_url(); ?>assets/foto/<?php echo ($G['gambar']); ?>" class="card-img-top">
@@ -110,6 +88,34 @@
                             <?php echo form_close(); ?>
 
                     </div>
+                    <!-- akhir modal tambah -->
+
+
+
+                    <!-- Modal edit dan hapus-->
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Aksi</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <a href="">
+                                        <?php echo anchor('galeri/edit_galeri/' . $G['id'], '<div class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i></div>') ?>
+                                    </a>
+                                    </a>
+                                    <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus2"><i class="fa fa-trash"></i>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- akhir modal edit dan hapus -->
 
 
                 </div>

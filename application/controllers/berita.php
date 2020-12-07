@@ -12,7 +12,7 @@ class Berita extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/berita', $data);
+        $this->load->view('kelola_data/berita/berita', $data);
         $this->load->view('templates/footer');
     }
     public function tambah_aksi()
@@ -48,7 +48,7 @@ class Berita extends CI_Controller
         $this->m_berita->input_data($data, 'berita');
         $this->session->set_flashdata('flash', 'Ditambahkan');
 
-        redirect('berita/index');
+        redirect('berita/berita/index');
     }
     public function hapus($id)
     {
@@ -67,7 +67,7 @@ class Berita extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/edit', $data);
+        $this->load->view('kelola_data/berita/edit', $data);
         $this->load->view('templates/footer');
     }
     // untuk mengubah data dari view edit
