@@ -22,9 +22,9 @@ class Guru extends CI_Controller
     public function tambah_aksi()
     {
         $id             = $this->input->post('id');
-        $judul          = $this->input->post('nama');
-        $tanggal        = $this->input->post('tanggal');
-        $gambar         = $_FILES['gambar'];
+        $nip          = $this->input->post('nip');
+        $nama        = $this->input->post('nama');
+        $gambar         = $_FILES['foto'];
 
         if ($gambar = '') {
         } else {
@@ -32,19 +32,21 @@ class Guru extends CI_Controller
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('gambar')) {
+            if (!$this->upload->do_upload('foto')) {
                 echo "Upload Gagal";
                 die();
             } else {
                 $gambar = $this->upload->data('file_name');
             }
         }
+        $bidang         = $this->input->post('bidang');
 
         $data = array(
             'id'                => $id,
-            'judul'             => $judul,
-            'tanggal'           => $tanggal,
-            'gambar'            => $gambar,
+            'nip'               => $nip,
+            'nama'              => $nama,
+            'foto'              => $gambar,
+            'bidang'            => $bidang
 
 
         );
@@ -78,8 +80,8 @@ class Guru extends CI_Controller
     public function update()
     {
         $id             = $this->input->post('id');
-        $judul          = $this->input->post('judul');
-        $tanggal        = $this->input->post('tanggal');
+        $judul          = $this->input->post('nip');
+        $tanggal        = $this->input->post('nama');
         $gambar         = $_FILES['gambar'];
 
         if ($gambar = '') {
@@ -88,7 +90,7 @@ class Guru extends CI_Controller
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('gambar')) {
+            if (!$this->upload->do_upload('foto')) {
                 echo "Upload Gagal";
                 die();
             } else {

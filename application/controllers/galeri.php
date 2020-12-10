@@ -55,4 +55,16 @@ class Galeri extends CI_Controller
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('galeri/index');
     }
+    // untuk menampilkan data pada option detail
+		public function detail($id){
+			$this->load->model('m_berita');
+			$detail = $this->m_berita->detail_data($id);
+			$data['detail'] = $detail;
+			$this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('kelola_data/galeri/galeri', $data);
+        $this->load->view('templates/footer');
+
+		} 
 }

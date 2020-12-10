@@ -18,7 +18,7 @@
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="<?= base_url('assets/css/'); ?>style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@200&display=swap" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -28,7 +28,6 @@
 </head>
 
 <body id="page-top" style="font-family: 'Bebas Neue', cursive;
-font-family: 'Oswald', sans-serif;
 ">
 
     <!-- Page Wrapper -->

@@ -62,3 +62,35 @@ $('.tombol-hapus2').on('click', function(e){
       })
 
 });
+
+const flashData3 = $('.flash-data3').data('flashdata3');
+
+if(flashData3){
+    Swal.fire({
+        title: 'Data Guru ' ,
+        text: 'Berhasil ' + flashData3,
+        icon: 'success',
+    })
+}
+
+// tombol hapus
+$('.tombol-hapus3').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data Guru akan dihapus",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data Guru'
+      }).then((result) => {
+        if (result.value) {
+          
+            document.location.href = href;
+          
+        }
+      })
+
+});
