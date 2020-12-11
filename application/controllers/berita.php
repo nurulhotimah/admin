@@ -83,20 +83,39 @@ class Berita extends CI_Controller
         $judul          = $this->input->post('judul');
         $tanggal        = $this->input->post('tanggal');
         $gambar         = $_FILES['gambar'];
-
-        if ($gambar = '') {
-        } else {
-            $config['upload_path'] = './assets/foto';
-            $config['allowed_types'] = 'jpg|png|give';
+        if ($gambar) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']      = '2048';
+            $config['upload_path'] = './assets/foto/';
+            
 
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
-                die();
+
+            if ($this->upload->do_upload('gambar')) {
+                $old_image = ['berita']['gambar'];
+                if ($old_image != 'default.jpg') {
+                    unlink(FCPATH . 'assets/foto/' . $old_image);
+                }
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('gambar', $new_image);
             } else {
-                $gambar = $this->upload->data('file_name');
+                echo $this->upload->dispay_errors();
             }
         }
+
+        // if ($gambar = '') {
+        // } else {
+        //     $config['upload_path'] = './assets/foto';
+        //     $config['allowed_types'] = 'jpg|png|give';
+
+        //     $this->load->library('upload', $config);
+        //     if (!$this->upload->do_upload('gambar')) {
+        //         echo "Upload Gagal";
+        //         die();
+        //     } else {
+        //         $gambar = $this->upload->data('file_name');
+        //     }
+        // }
 
 
 

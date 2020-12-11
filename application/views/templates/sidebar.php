@@ -63,6 +63,7 @@
                 <a class="collapse-item" href="<?= base_url('galeri'); ?>">Galeri</a>
                 <a class="collapse-item" href="<?= base_url('guru'); ?>">Data Guru</a>
                 <a class="collapse-item" href="<?= base_url('galeri'); ?>">Prestasi</a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Ekstrakulikuler</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
