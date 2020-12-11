@@ -57,6 +57,8 @@ class Berita extends CI_Controller
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('berita/index');
     }
+
+
     public function edit($id)
     {
 
@@ -70,6 +72,10 @@ class Berita extends CI_Controller
         $this->load->view('kelola_data/berita/edit', $data);
         $this->load->view('templates/footer');
     }
+
+
+
+
     // untuk mengubah data dari view edit
     public function update()
     {
@@ -102,8 +108,6 @@ class Berita extends CI_Controller
             'tanggal'           => $tanggal,
             'gambar'            => $gambar
 
-
-
         );
 
 
@@ -113,5 +117,24 @@ class Berita extends CI_Controller
         $this->m_berita->update_data($where, $data, 'berita');
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('berita/index');
+    }
+
+
+    // untuk menampilkan data pada option detail
+    public function detail($id)
+    {
+        // untuk title
+        $data['title'] = 'Detail';
+        // mengambil data session
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->model('m_berita');
+        $detail = $this->m_berita->detail_data($id);
+        $data['detail'] = $detail;
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('kelola_data/berita/detail', $data);
+        $this->load->view('templates/footer');
     }
 }

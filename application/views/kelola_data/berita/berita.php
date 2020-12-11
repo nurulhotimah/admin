@@ -42,12 +42,9 @@
                             <td><?php echo $B['tanggal'] ?></td>
                             <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" width="90" height="50"></td>
                             <td>
-                                <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i>
-
-                                </a>
-                                <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus"><i class="fa fa-trash"></i>
-
-                                </a>
+                                <a href="<?php echo base_url(); ?>berita/detail/<?= $B['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
+                                <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
+                                <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus"><i class="fa fa-trash"></i></a>
                             </td>
 
                         </tr>

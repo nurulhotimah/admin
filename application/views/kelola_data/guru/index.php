@@ -38,18 +38,16 @@
                 <tbody>
                     <?php foreach ($Guru as $Gr) : ?>
                         <tr>
+                            <td><?php echo $Gr['id'] ?></td>
                             <td><?php echo $Gr['nip'] ?></td>
                             <td><?php echo $Gr['nama'] ?></td>
 
                             <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $Gr['foto']; ?>" width="90" height="50"></td>
                             <td><?php echo $Gr['bidang'] ?></td>
                             <td>
-                                <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-primary btn-sm ml-5"><i class="fa fa-edit"></i>
-
-                                </a>
-                                <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm ml-5 tombol-hapus3"><i class="fa fa-trash"></i>
-
-                                </a>
+                                <a href="<?php echo base_url(); ?>guru/detail/<?= $Gr['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
+                                <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
+                                <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus"><i class="fa fa-trash"></i></a>
                             </td>
 
                         </tr>

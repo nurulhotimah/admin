@@ -120,4 +120,21 @@ class Guru extends CI_Controller
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('berita/index');
     }
+
+    public function detail($id)
+    {
+
+        $data['title'] = 'Detail';
+        // mengambil data session
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // untuk menampilkan data dari database
+        $this->load->model('m_guru');
+        $detail = $this->m_guru->detail_data($id);
+        $data['detail'] = $detail;
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
+        $this->load->view('kelola_data/guru/detail', $data);
+        $this->load->view('templates/footer');
+    }
 }

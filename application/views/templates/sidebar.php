@@ -34,12 +34,12 @@
 
     <!-- Nav Item -Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('user'); ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>My Profile</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('user/edit'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span> Edit My Profile</span></a>
     </li>

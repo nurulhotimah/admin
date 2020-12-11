@@ -1,0 +1,58 @@
+<!-- Begin Page Content -->
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+
+        <section class="content">
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <td><?php echo $detail->id ?></td>
+                </tr>
+                <tr>
+                    <th>Nama</th>
+                    <td><?php echo $detail->nama ?></td>
+                </tr>
+                <tr>
+                    <th>Bidang</th>
+                    <td><?php echo $detail->bidang ?></td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo $detail->foto; ?>" width="90" height="100">
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <a href="<?php echo base_url('guru/index'); ?>" class='btn btn-primary'>Kembali</a>
+
+        </section>
+        <!-- section content -->
+
+
+
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+</div>
+<!-- End of Main Content -->
+
+
+
+
+
+
+
+
+<div class="content-wrapper">
+
+</div>
