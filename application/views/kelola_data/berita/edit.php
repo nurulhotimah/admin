@@ -6,6 +6,7 @@
         <h1 class="h3 mb-4 text-gray-500"><?= $title; ?></h1>
         <section class="content">
             <?php foreach ($berita as $B) { ?>
+                <?php echo form_open_multipart('berita/update'); ?>
                 <form action="<?php echo base_url() . 'berita/update'; ?>" method="post">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nama</label>
@@ -27,8 +28,8 @@
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="image" name="gambar">
-                                        <label class="custom-file-label" for="image">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                        <label class="custom-file-label" for="gambar">Choose file</label>
                                     </div>
                                 </div>
                             </div>

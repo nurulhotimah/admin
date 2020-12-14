@@ -67,10 +67,10 @@ class Galeri extends CI_Controller
         $where = array('id' => $id);
         $data['title'] = 'Ubah Galeri';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['berita'] = $this->m_galeri->edit_data($where, 'berita')->result();
+        $data['galeri'] = $this->m_galeri->edit_data($where, 'galeri')->result();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('kelola_data/galeri/edit', $data);
         $this->load->view('templates/footer');
     }

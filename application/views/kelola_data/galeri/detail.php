@@ -10,6 +10,9 @@
         <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
 
         <section class="content">
+            <div class="row">
+
+            </div>
             <table class="table">
                 <tr>
                     <th>Id</th>
