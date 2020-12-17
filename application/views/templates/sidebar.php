@@ -58,12 +58,26 @@
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item" href="#">Data Siswa</a>
-                <a class="collapse-item" href="<?= base_url('berita'); ?>">Berita</a>
-                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Galeri</a>
-                <a class="collapse-item" href="<?= base_url('guru'); ?>">Data Guru</a>
-                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Prestasi</a>
-                <a class="collapse-item" href="<?= base_url('galeri'); ?>">Ekstrakulikuler</a>
+                <a class="collapse-item" href="<?= base_url('berita'); ?>">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Berita</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">
+                    <i class="far fa-fw fa-image"></i>
+                    <span>Galeri</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('guru'); ?>">
+                    <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                    <span>Data Guru</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('galeri'); ?>">
+                    <i class="fas fa-fw fa-trophy"></i>
+                    <span>Prestasi</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('ekstrakulikuler'); ?>">
+                    <i class="fas fa-fw fa-snowboarding"></i>
+                    <span>Ekstrakulikuler</span>
+                </a>
                 <div class="collapse-divider"></div>
             </div>
         </div>

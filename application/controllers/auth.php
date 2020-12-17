@@ -28,6 +28,9 @@ class auth extends CI_Controller
             $this->_login();
         }
     }
+
+
+    // untuk login
     private function _login()
     {
         $email = $this->input->post('email');
@@ -67,6 +70,9 @@ class auth extends CI_Controller
             redirect('auth');
         }
     }
+
+
+    // untuk registrasi
     public function registration()
     {
         // agar tidak kembali ke page login
@@ -107,6 +113,8 @@ class auth extends CI_Controller
             redirect('auth');
         }
     }
+
+    // untuk logout
     public function logout()
     {
         $this->session->unset_userdata('email');

@@ -17,6 +17,7 @@
             <?php
             $queryGuru = "SELECT * FROM guru";
             $Guru = $this->db->query($queryGuru)->result_array();
+            $i = 1;
             ?>
 
             <!-- looping berita -->
@@ -26,6 +27,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">No</th>
                         <th scope="col">NIP</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Foto</th>
@@ -38,7 +40,7 @@
                 <tbody>
                     <?php foreach ($Guru as $Gr) : ?>
                         <tr>
-                            <td><?php echo $Gr['id'] ?></td>
+                            <td><?php echo $i++ ?></td>
                             <td><?php echo $Gr['nip'] ?></td>
                             <td><?php echo $Gr['nama'] ?></td>
 

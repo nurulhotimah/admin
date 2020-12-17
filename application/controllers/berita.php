@@ -5,16 +5,22 @@ class Berita extends CI_Controller
     {
         // untuk title
         $data['title'] = 'Berita';
+
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // untuk menampilkan data dari database
+
+        //memanggil model tampil data
         $data['berita'] = $this->m_berita->tampil_data()->result();
+
+        // memanggil templates
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('kelola_data/berita/berita', $data);
         $this->load->view('templates/footer');
     }
+
+    // untuk tambah data
     public function tambah_aksi()
     {
         $id             = $this->input->post('id');
@@ -50,6 +56,8 @@ class Berita extends CI_Controller
 
         redirect('berita/index');
     }
+
+    // untuk hapus data
     public function hapus($id)
     {
         $where = array('id' => $id);
@@ -59,12 +67,16 @@ class Berita extends CI_Controller
     }
 
 
+    // untuk edit data
     public function edit($id)
     {
 
         $where = array('id' => $id);
         $data['title'] = 'ubah berita';
+
+        // memanggil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['berita'] = $this->m_berita->edit_data($where, 'berita')->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -141,8 +153,8 @@ class Berita extends CI_Controller
         $detail = $this->m_berita->detail_data($id);
         $data['detail'] = $detail;
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('kelola_data/berita/detail', $data);
         $this->load->view('templates/footer');
     }

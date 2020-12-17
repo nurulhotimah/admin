@@ -4,11 +4,16 @@ class Galeri extends CI_Controller
 
     public  function index()
     {
+        // title
         $data['title'] = 'Galeri';
+
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // untuk menampilkan data dari database
+
+
         $data['galeri'] = $this->m_galeri->tampil_data()->result();
+
+        // memanggil templates
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar');
@@ -16,7 +21,7 @@ class Galeri extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
+    // untuk menambah data
     public function tambah_aksi()
     {
         $id             = $this->input->post('id');
@@ -48,11 +53,14 @@ class Galeri extends CI_Controller
         );
 
         $this->m_galeri->input_data($data, 'galeri');
+
+        // flash data untuk alert
         $this->session->set_flashdata('flash', 'Ditambahkan');
+
         redirect('galeri/index');
     }
 
-
+    // untuk hapus data
     public function hapus($id)
     {
         $where = array('id' => $id);
@@ -61,6 +69,8 @@ class Galeri extends CI_Controller
         redirect('galeri/index');
     }
 
+
+    // untuk edit data
     public function edit($id)
     {
 
@@ -125,7 +135,6 @@ class Galeri extends CI_Controller
     // untuk menampilkan data pada option detail
     public function detail($id)
     {
-
         $data['title'] = 'Detail';
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
