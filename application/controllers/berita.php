@@ -94,30 +94,25 @@ class Berita extends CI_Controller
         $id             = $this->input->post('id');
         $judul          = $this->input->post('judul');
         $tanggal        = $this->input->post('tanggal');
-        $upload_gambar  = $_FILES['gambar']['name'];
-        $config['upload_path'] = './assets/foto';
-        $config['allowed_types'] = 'jpg|png|give';
-        $this->load->library('upload', $config);
+        $gambar         = $_FILES['gambar'];
 
-        if ($this->upload->do_upload('gambar')) {
-            $new_img = $this->upload->data('file_name');
-            $this->db->set('gambar', $new_img);
+        if ($gambar = '') {
         } else {
-            $upload_gambar = $this->upload->display_errors();
+            $config['upload_path'] = './assets/foto';
+            $config['allowed_types'] = 'jpg|png|give';
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('gambar')) {
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('gambar', $new_img);
+
+                echo "Upload Gagal";
+                die();
+            } else {
+                $gambar = $this->upload->data('file_name');
+            }
         }
 
-
-        // if (gambar) {
-        // } else {
-        //     $config['upload_path'] = './assets/foto';
-        //     $config['allowed_types'] = 'jpg|png|give';
-
-        //     $this->load->library('upload', $config);
-        //     if ($this->upload->do_upload('gambar')) {
-        //     } else {
-        //         $gambar = $this->upload->data('file_name');
-        //     }
-        // }
 
 
 
@@ -127,7 +122,7 @@ class Berita extends CI_Controller
 
             'judul'             => $judul,
             'tanggal'           => $tanggal,
-            'gambar'            => $upload_gambar
+            'gambar'            => $gambar
 
         );
 

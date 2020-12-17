@@ -1,6 +1,6 @@
 <?php
 
-class M_galeri extends CI_Model
+class M_ekstrakulikuler extends CI_Model
 {
     public function tampil_data()
     {
