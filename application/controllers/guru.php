@@ -5,7 +5,7 @@ class Guru extends CI_Controller
     public function index()
     {
         // title
-        $data['title'] = 'Data Pendidik';
+        $data['title'] = 'Data Guru';
 
         // mengambil data session
 
@@ -67,7 +67,7 @@ class Guru extends CI_Controller
     {
 
         $where = array('id' => $id);
-        $data['title'] = 'ubah data pendidik';
+        $data['title'] = 'Ubah Data Guru';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['berita'] = $this->m_guru->edit_data($where, 'guru')->result();
         $this->load->view('templates/header', $data);

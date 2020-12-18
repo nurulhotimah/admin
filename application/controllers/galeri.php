@@ -70,7 +70,7 @@ class Galeri extends CI_Controller
     }
 
 
-    // untuk edit data
+    // untuk edit
     public function edit($id)
     {
 
@@ -103,6 +103,9 @@ class Galeri extends CI_Controller
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('gambar')) {
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('gambar', $new_img);
+
                 echo "Upload Gagal";
                 die();
             } else {
@@ -135,6 +138,7 @@ class Galeri extends CI_Controller
     // untuk menampilkan data pada option detail
     public function detail($id)
     {
+
         $data['title'] = 'Detail';
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

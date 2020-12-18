@@ -49,7 +49,7 @@
                             <td>
                                 <a href="<?php echo base_url(); ?>guru/detail/<?= $Gr['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
                                 <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus"><i class="fa fa-trash"></i></a>
+                                <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus3"><i class="fa fa-trash"></i></a>
                             </td>
 
                         </tr>

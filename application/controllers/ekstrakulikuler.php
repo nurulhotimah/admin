@@ -74,7 +74,7 @@ class Ekstrakulikuler extends CI_Controller
     {
 
         $where = array('id' => $id);
-        $data['title'] = 'Ubah Ekstrakulikuler';
+        $data['title'] = 'Edit Ekstrakulikuler';
 
         // memanggil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

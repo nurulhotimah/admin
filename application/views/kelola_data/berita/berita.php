@@ -11,22 +11,22 @@
 
         <section class="content">
 
+            <!-- button tambah -->
             <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Berita</button>
 
 
             <?php
             $queryBerita = "SELECT * FROM berita";
             $Berita = $this->db->query($queryBerita)->result_array();
+            $i = 1;
             ?>
 
             <!-- looping berita -->
 
-
-
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">No</th>
                         <th scope="col">Judul</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Gambar</th>
@@ -37,7 +37,7 @@
                 <tbody>
                     <?php foreach ($Berita as $B) : ?>
                         <tr>
-                            <td><?php echo $B['id'] ?></td>
+                            <td><?php echo $i++ ?></td>
                             <td><?php echo $B['judul'] ?></td>
                             <td><?php echo $B['tanggal'] ?></td>
                             <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" width="90" height="50"></td>
@@ -50,16 +50,8 @@
                         </tr>
                     <?php endforeach; ?>
 
-
-
-
                 </tbody>
             </table>
-
-
-
-
-
 
 
             <!-- Modal -->
@@ -79,18 +71,18 @@
                             <form method="post" action="<?php echo base_url() . 'berita/tambah_aksi'; ?>">
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">judul</label>
-                                    <input type="text" name="judul" class="form-control">
+                                    <label>judul</label>
+                                    <input type="text" name="judul" class="form-control" autocomplete='off'>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">tanggal</label>
+                                    <label>tanggal</label>
                                     <input type="date" name="tanggal" class="form-control">
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Upload Foto</label>
+                                    <label>Upload Foto</label>
                                     <input type="file" name="gambar" class="form-control">
                                 </div>
 
@@ -101,6 +93,7 @@
                                 <?php echo form_close(); ?>
 
                         </div>
+                        <!-- akhir modal -->
 
         </section>
         <!-- section content -->

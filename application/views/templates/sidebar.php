@@ -78,6 +78,15 @@
                     <i class="fas fa-fw fa-snowboarding"></i>
                     <span>Ekstrakulikuler</span>
                 </a>
+                <a class="collapse-item" href="<?= base_url('ekstrakulikuler'); ?>">
+                    <i class="fas fa-fw fa-graduation-cap"></i>
+                    <span>Alumni</span>
+                </a>
+                <a class="collapse-item" href="<?= base_url('ekstrakulikuler'); ?>">
+                    <i class="fab fa-fw fa-slideshare"></i>
+                    <span>Carousel</span>
+                </a>
+
                 <div class="collapse-divider"></div>
             </div>
         </div>

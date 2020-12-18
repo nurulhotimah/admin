@@ -7,9 +7,7 @@
         <section class="content">
             <div class="row ">
                 <div class="col-lg-8">
-                    <?php
-                    // error_reporting(0);
-                    ?>
+                   
                     <?php
                     $queryGuru = "SELECT * FROM guru";
                     $Guru = $this->db->query($queryGuru)->result_array();
