@@ -11,9 +11,7 @@
 
         <section class="content">
             <table class="table">
-                <?php
-
-                ?>
+                
                 <tr>
                     <th>Id</th>
                     <td><?php echo $detail->id ?></td>

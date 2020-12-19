@@ -146,13 +146,13 @@ class ALumni extends CI_Controller
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->model('m_berita');
-        $detail = $this->m_berita->detail_data($id);
+        $this->load->model('m_alumni');
+        $detail = $this->m_alumni->detail_data($id);
         $data['detail'] = $detail;
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/berita/detail', $data);
+        $this->load->view('kelola_data/alumni/detail', $data);
         $this->load->view('templates/footer');
     }
 }

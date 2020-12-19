@@ -126,3 +126,35 @@ $('.tombol-hapus4').on('click', function(e){
         })
 
 });
+
+const flashData5 = $('.flash-data5').data('flashdata5');
+
+if(flashData4){
+    Swal.fire({
+        title: 'Data Ekstrakulikuler ' ,
+        text: 'Berhasil ' + flashData5,
+        icon: 'success',
+    })
+}
+
+// tombol hapus
+$('.tombol-hapus4').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data Ekstrakulikuler akan dihapus",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data Ekstrakulikuler'
+        }).then((result) => {
+        if (result.value) {
+            
+            document.location.href = href;
+            
+        }
+        })
+
+});
