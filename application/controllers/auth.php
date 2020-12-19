@@ -20,9 +20,9 @@ class auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Halaman Login';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/login');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('menu_admin/templates/auth_header', $data);
+            $this->load->view('menu_admin/auth/login');
+            $this->load->view('menu_admin/templates/auth_footer');
         } else {
             // validasinya succes
             $this->_login();
@@ -76,7 +76,7 @@ class auth extends CI_Controller
     public function registration()
     {
         // agar tidak kembali ke page login
-        
+
         if ($this->session->userdata('email')) {
             redirect('user');
         }
@@ -93,9 +93,9 @@ class auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Halaman Registrasi';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/registration');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('menu_admin/templates/auth_header', $data);
+            $this->load->view('menu_admin/auth/registration');
+            $this->load->view('menu_admin/templates/auth_footer');
         } else {
             $data = [
 

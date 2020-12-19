@@ -13,11 +13,11 @@ class Guru extends CI_Controller
 
         // untuk menampilkan data
         $data['guru'] = $this->m_guru->tampil_data()->result();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/guru/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar');
+        $this->load->view('menu_admin/templates/topbar');
+        $this->load->view('menu_admin/kelola_data/guru/index', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
     public function tambah_aksi()
     {
@@ -70,11 +70,11 @@ class Guru extends CI_Controller
         $data['title'] = 'Ubah Data Guru';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['berita'] = $this->m_guru->edit_data($where, 'guru')->result();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/guru/edit', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar', $data);
+        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/guru/edit', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
     // untuk mengubah data dari view edit
     public function update()
@@ -140,10 +140,10 @@ class Guru extends CI_Controller
         $this->load->model('m_guru');
         $detail = $this->m_guru->detail_data($id);
         $data['detail'] = $detail;
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/guru/detail', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar');
+        $this->load->view('menu_admin/templates/topbar');
+        $this->load->view('menu_admin/kelola_data/guru/detail', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
 }

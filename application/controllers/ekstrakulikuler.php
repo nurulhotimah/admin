@@ -13,11 +13,11 @@ class Ekstrakulikuler extends CI_Controller
         $data['berita'] = $this->m_ekstrakulikuler->tampil_data()->result();
 
         // memanggil templates
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/ekstrakulikuler/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar', $data);
+        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/ekstrakulikuler/index', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
 
     // untuk tambah data
@@ -80,11 +80,11 @@ class Ekstrakulikuler extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['berita'] = $this->m_ekstrakulikuler->edit_data($where, 'ekstrakulikuler')->result();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/ekstrakulikuler/edit', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar', $data);
+        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/ekstrakulikuler/edit', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
 
 
@@ -149,10 +149,10 @@ class Ekstrakulikuler extends CI_Controller
         $this->load->model('m_ekstrakulikuler');
         $detail = $this->m_ekstrakulikuler->detail_data($id);
         $data['detail'] = $detail;
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/ekstrakulikuler/detail', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar', $data);
+        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/ekstrakulikuler/detail', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
 }

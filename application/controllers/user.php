@@ -8,11 +8,11 @@ class User extends CI_Controller
 
         // echo 'selamat datang ' . $data['user']['name'];
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('menu_admin/templates/header', $data);
+        $this->load->view('menu_admin/templates/sidebar', $data);
+        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('menu_admin/user/index', $data);
+        $this->load->view('menu_admin/templates/footer');
     }
 
     public function edit()
@@ -23,11 +23,11 @@ class User extends CI_Controller
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('user/edit', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('menu_admin/templates/header', $data);
+            $this->load->view('menu_admin/templates/sidebar', $data);
+            $this->load->view('menu_admin/templates/topbar', $data);
+            $this->load->view('menu_admin/user/edit', $data);
+            $this->load->view('menu_admin/templates/footer');
         } else {
             $name = $this->input->post('name');
             $email = $this->input->post('email');
