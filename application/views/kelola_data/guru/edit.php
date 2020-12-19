@@ -7,7 +7,7 @@
         <section class="content">
             <div class="row ">
                 <div class="col-lg-8">
-                   
+
                     <?php
                     $queryGuru = "SELECT * FROM guru";
                     $Guru = $this->db->query($queryGuru)->result_array();
@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" name="gambar">
+                                                <input type="file" class="custom-file-input" id="image" name="foto">
                                                 <label class="custom-file-label" for="image">Choose file</label>
                                             </div>
                                         </div>

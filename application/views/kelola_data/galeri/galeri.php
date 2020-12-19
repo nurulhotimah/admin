@@ -17,6 +17,7 @@
             <?php
             $queryGaleri = "SELECT * FROM galeri";
             $Galeri = $this->db->query($queryGaleri)->result_array();
+            $i = 1;
             ?>
 
             <!-- looping berita -->
@@ -37,7 +38,7 @@
                 <tbody>
                     <?php foreach ($Galeri as $G) : ?>
                         <tr>
-                            <td><?php echo $G['id'] ?></td>
+                            <td><?php echo $i++ ?></td>
                             <td><?php echo $G['judul'] ?></td>
                             <td><?php echo $G['tanggal'] ?></td>
                             <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $G['gambar']; ?>" width="90" height="50"></td>

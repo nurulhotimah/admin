@@ -75,7 +75,7 @@ class Galeri extends CI_Controller
     {
 
         $where = array('id' => $id);
-        $data['title'] = 'Ubah Galeri';
+        $data['title'] = 'Edit Galeri';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['galeri'] = $this->m_galeri->edit_data($where, 'galeri')->result();
         $this->load->view('templates/header', $data);
@@ -103,6 +103,7 @@ class Galeri extends CI_Controller
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('gambar')) {
+
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('gambar', $new_img);
 
@@ -129,7 +130,7 @@ class Galeri extends CI_Controller
         $where = array(
             'id'            => $id
         );
-        $this->m_berita->update_data($where, $data, 'berita');
+        $this->m_berita->update_data($where, $data, 'galeri');
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('galeri/index');
     }
@@ -143,7 +144,7 @@ class Galeri extends CI_Controller
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // untuk menampilkan data dari database
-        $this->load->model('m_berita');
+        $this->load->model('m_galeri');
         $detail = $this->m_galeri->detail_data($id);
         $data['detail'] = $detail;
         $this->load->view('templates/header', $data);

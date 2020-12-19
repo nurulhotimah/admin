@@ -1,88 +1,33 @@
 <?php
-
-class Guru extends CI_Controller
+class ALumni extends CI_Controller
 {
     public function index()
     {
-        // title
-        $data['title'] = 'Data Guru';
+        // untuk title
+        $data['title'] = 'Alumni';
 
         // mengambil data session
-
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // untuk menampilkan data
-        $data['guru'] = $this->m_guru->tampil_data()->result();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/guru/index', $data);
-        $this->load->view('templates/footer');
-    }
-    public function tambah_aksi()
-    {
-        $id             = $this->input->post('id');
-        $nip          = $this->input->post('nip');
-        $nama        = $this->input->post('nama');
-        $gambar         = $_FILES['foto'];
+        //memanggil model tampil data
+        $data['berita'] = $this->m_berita->tampil_data()->result();
 
-        if ($gambar = '') {
-        } else {
-            $config['upload_path'] = './assets/foto';
-            $config['allowed_types'] = 'jpg|png|give';
-
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('foto')) {
-                echo "Upload Gagal";
-                die();
-            } else {
-                $gambar = $this->upload->data('file_name');
-            }
-        }
-        $bidang         = $this->input->post('bidang');
-
-        $data = array(
-            'id'                => $id,
-            'nip'               => $nip,
-            'nama'              => $nama,
-            'foto'              => $gambar,
-            'bidang'            => $bidang
-
-
-        );
-
-        $this->m_guru->input_data($data, 'guru');
-        $this->session->set_flashdata('flash', 'Ditambahkan');
-
-        redirect('guru/index');
-    }
-    public function hapus($id)
-    {
-        $where = array('id' => $id);
-        $this->m_berita->hapus_data($where, 'guru');
-        $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('guru/index');
-    }
-    public function edit($id)
-    {
-
-        $where = array('id' => $id);
-        $data['title'] = 'Ubah Data Guru';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['berita'] = $this->m_guru->edit_data($where, 'guru')->result();
+        // memanggil templates
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('kelola_data/guru/edit', $data);
+        $this->load->view('kelola_data/alumni/index', $data);
         $this->load->view('templates/footer');
     }
-    // untuk mengubah data dari view edit
-    public function update()
+
+    // untuk tambah data
+    public function tambah_aksi()
     {
         $id             = $this->input->post('id');
-        $nip            = $this->input->post('nip');
-        $nama           = $this->input->post('nama');
-        $foto         = $_FILES['foto'];
+        $nama          = $this->input->post('nama');
+        $tempat_bekerja       = $this->input->post('tempat_bekerja');
+        $pesan_kesan          = $this->input->post('pesan_kesan');
+        $foto                 = $_FILES['foto'];
 
         if ($foto = '') {
         } else {
@@ -91,17 +36,85 @@ class Guru extends CI_Controller
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto')) {
-
-                $new_img = $this->upload->data('file_name');
-                $this->db->set('foto', $new_img);
-
                 echo "Upload Gagal";
                 die();
             } else {
                 $foto = $this->upload->data('file_name');
             }
         }
-        $bidang         = $this->input->post('bidang');
+
+        $data = array(
+            'id'                => $id,
+            'nama'              => $nama,
+            'tempat_bekerja'    => $tempat_bekerja,
+            'pesan_kesan'       => $pesan_kesan,
+            'foto'            => $foto,
+
+
+        );
+
+        $this->m_alumni->input_data($data, 'alumni');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+
+        redirect('alumni/index');
+    }
+
+    // untuk hapus data
+    public function hapus($id)
+    {
+        $where = array('id' => $id);
+        $this->m_berita->hapus_data($where, 'berita');
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('berita/index');
+    }
+
+
+    // untuk edit data
+    public function edit($id)
+    {
+
+        $where = array('id' => $id);
+        $data['title'] = 'ubah berita';
+
+        // memanggil data session
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['berita'] = $this->m_berita->edit_data($where, 'berita')->result();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kelola_data/berita/edit', $data);
+        $this->load->view('templates/footer');
+    }
+
+
+
+
+    // untuk mengubah data dari view edit
+    public function update()
+    {
+        $id             = $this->input->post('id');
+        $judul          = $this->input->post('judul');
+        $tanggal        = $this->input->post('tanggal');
+        $gambar         = $_FILES['gambar'];
+
+        if ($gambar = '') {
+        } else {
+            $config['upload_path'] = './assets/foto';
+            $config['allowed_types'] = 'jpg|png|give';
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('gambar')) {
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('gambar', $new_img);
+
+                echo "Upload Gagal";
+                die();
+            } else {
+                $gambar = $this->upload->data('file_name');
+            }
+        }
+
 
 
 
@@ -109,15 +122,9 @@ class Guru extends CI_Controller
 
         $data = array(
 
-            'id'                => $id,
-            'nip'               => $nip,
-            'nama'              => $nama,
-            'foto'              => $foto,
-            'bidang'            => $bidang
-
-
-
-
+            'judul'             => $judul,
+            'tanggal'           => $tanggal,
+            'gambar'            => $gambar
 
         );
 
@@ -125,25 +132,27 @@ class Guru extends CI_Controller
         $where = array(
             'id'            => $id
         );
-        $this->m_berita->update_data($where, $data, 'guru');
+        $this->m_berita->update_data($where, $data, 'berita');
         $this->session->set_flashdata('flash', 'Diubah');
-        redirect('guru/index');
+        redirect('berita/index');
     }
 
+
+    // untuk menampilkan data pada option detail
     public function detail($id)
     {
-
+        // untuk title
         $data['title'] = 'Detail';
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // untuk menampilkan data dari database
-        $this->load->model('m_guru');
-        $detail = $this->m_guru->detail_data($id);
+
+        $this->load->model('m_berita');
+        $detail = $this->m_berita->detail_data($id);
         $data['detail'] = $detail;
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/guru/detail', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kelola_data/berita/detail', $data);
         $this->load->view('templates/footer');
     }
 }
