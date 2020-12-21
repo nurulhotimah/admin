@@ -14,11 +14,11 @@ class Galeri extends CI_Controller
         $data['galeri'] = $this->m_galeri->tampil_data()->result();
 
         // memanggil templates
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar');
-        $this->load->view('menu_admin/templates/topbar');
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/galeri/galeri', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
     // untuk menambah data
@@ -78,11 +78,11 @@ class Galeri extends CI_Controller
         $data['title'] = 'Edit Galeri';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['galeri'] = $this->m_galeri->edit_data($where, 'galeri')->result();
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/galeri/edit', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
 
@@ -148,9 +148,9 @@ class Galeri extends CI_Controller
         $detail = $this->m_galeri->detail_data($id);
         $data['detail'] = $detail;
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar');
-        $this->load->view('kelola_data/galeri/detail', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/galeri/detail', $data);
         $this->load->view('templates/footer');
     }
 }

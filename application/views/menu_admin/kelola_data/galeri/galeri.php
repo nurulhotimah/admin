@@ -7,11 +7,13 @@
 
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+        <!-- <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1> -->
+
 
         <section class="content">
 
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Galeri</button>
+
+
 
 
             <?php
@@ -24,43 +26,75 @@
 
 
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Gambar</th>
-
-                        <th scope="col" colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($Galeri as $G) : ?>
-                        <tr>
-                            <td><?php echo $i++ ?></td>
-                            <td><?php echo $G['judul'] ?></td>
-                            <td><?php echo $G['tanggal'] ?></td>
-                            <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $G['gambar']; ?>" width="90" height="50"></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>galeri/detail/<?= $G['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
-                                <a href="<?php echo base_url(); ?>galeri/edit/<?= $G['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus2"><i class="fa fa-trash"></i></a>
-                            </td>
-
-                        </tr>
-                    <?php endforeach; ?>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <div class="row">
+                            <div class="col-md-10">
+                                DATA GALERI
+                                <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Galeri</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                            </div>
+                        </div>
 
 
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul</th>
+                                    <th>Tanggal</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul</th>
+                                    <th>Tanggal</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php foreach ($Galeri as $G) : ?>
+                                    <tr>
 
 
-                </tbody>
-            </table>
+                                        <td><?php echo $i++ ?></td>
+                                        <td><?php echo $G['judul'] ?></td>
+                                        <td><?php echo $G['tanggal'] ?></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $G['gambar']; ?>" width="90" height="50"></td>
+                                        <td>
+
+                                            <a href="<?php echo base_url(); ?>galeri/edit/<?= $G['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text">Edit</span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus2">
+                                                <span class="text">Hapus</span>
+                                            </a>
+
+                                        </td>
 
 
 
+                                    </tr>
+                                <?php endforeach; ?>
 
 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- Modal -->
@@ -80,18 +114,18 @@
                             <form method="post" action="<?php echo base_url() . 'galeri/tambah_aksi'; ?>">
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">judul</label>
-                                    <input type="text" name="judul" class="form-control">
+                                    <label>judul</label>
+                                    <input type="text" name="judul" class="form-control" autocomplete='off'>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">tanggal</label>
+                                    <label>tanggal</label>
                                     <input type="date" name="tanggal" class="form-control">
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Upload Foto</label>
+                                    <label>Upload Foto</label>
                                     <input type="file" name="gambar" class="form-control">
                                 </div>
 

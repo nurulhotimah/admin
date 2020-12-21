@@ -31,3 +31,4 @@ class M_alumni extends CI_Model
         return $query;
     }
 }
+?>

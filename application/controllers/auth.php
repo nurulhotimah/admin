@@ -93,9 +93,9 @@ class auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Halaman Registrasi';
-            $this->load->view('menu_admin/templates/auth_header', $data);
+            $this->load->view('templates/auth_header', $data);
             $this->load->view('menu_admin/auth/registration');
-            $this->load->view('menu_admin/templates/auth_footer');
+            $this->load->view('templates/auth_footer');
         } else {
             $data = [
 

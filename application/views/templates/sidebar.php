@@ -1,26 +1,26 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion " id="accordionSidebar">
+<ul class="navbar-nav bg-gradient sidebar sidebar-dark accordion " id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-school"></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon ">
+            <img src="assets/img/pelnus/logo.ico" width="60px" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">SMK PELNUS</div>
+        <div class="sidebar-brand-text text-dark ml-2">SMK PELNUS</div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div class="sidebar-heading text-dark">
         Administrator
     </div>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+        <a class="nav-link text-black-50" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt text-black-50"></i>
             <span>Dashboard</span></a>
     </li>
 
@@ -28,35 +28,35 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div class="sidebar-heading text-dark">
         User
     </div>
 
     <!-- Nav Item -Profile -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user'); ?>">
-            <i class="fas fa-fw fa-user"></i>
-            <span>My Profile</span></a>
+            <i class="fas fa-fw fa-user text-black-50"></i>
+            <span class="text-black-50">My Profile</span></a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="<?= base_url('user/edit'); ?>">
             <i class="fas fa-fw fa-user-edit"></i>
             <span> Edit My Profile</span></a>
-    </li>
+    </li> -->
 
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider ">
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div class="sidebar-heading text-dark">
         Menu
     </div>
     <!-- menu management -->
     <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Kelola Menu</span>
+            <i class="fas fa-fw fa-folder text-black-50"></i>
+            <span class="text-black-50">Kelola Menu</span>
         </a>
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="bg-light py-2 collapse-inner rounded">
 
                 <a class="collapse-item" href="<?= base_url('berita'); ?>">
                     <i class="fas fa-fw fa-newspaper"></i>
@@ -70,7 +70,7 @@
                     <i class="fas fa-fw fa-chalkboard-teacher"></i>
                     <span>Data Guru</span>
                 </a>
-                <a class="collapse-item" href="<?= base_url('galeri'); ?>">
+                <a class="collapse-item" href="<?= base_url('prestasi'); ?>">
                     <i class="fas fa-fw fa-trophy"></i>
                     <span>Prestasi</span>
                 </a>
@@ -86,11 +86,6 @@
                     <i class="fab fa-fw fa-slideshare"></i>
                     <span>Carousel</span>
                 </a>
-                <a class="collapse-item" href="<?= base_url('profile'); ?>">
-                    <i class="fas fa-fw fa-school"></i>
-                    <span>Profile</span>
-                </a>
-
 
                 <div class="collapse-divider"></div>
             </div>
@@ -99,8 +94,8 @@
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-            <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Logout</span></a>
+            <i class="fas fa-fw fa-sign-out-alt  text-black-50"></i>
+            <span class=" text-black-50">Logout</span></a>
     </li>
 
     <!-- Divider -->

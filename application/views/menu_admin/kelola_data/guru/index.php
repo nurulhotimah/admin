@@ -6,12 +6,11 @@
         <?php endif; ?>
 
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+
 
         <section class="content">
 
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Guru</button>
+
 
 
             <?php
@@ -23,44 +22,79 @@
             <!-- looping berita -->
 
 
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">NIP</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Bidang</th>
-
-
-                        <th scope="col" colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($Guru as $Gr) : ?>
-                        <tr>
-                            <td><?php echo $i++ ?></td>
-
-                            <td><?php echo $Gr['nip'] ?></td>
-                            <td><?php echo $Gr['nama'] ?></td>
-
-                            <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $Gr['foto']; ?>" width="90" height="50"></td>
-                            <td><?php echo $Gr['bidang'] ?></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>guru/detail/<?= $Gr['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
-                                <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus3"><i class="fa fa-trash"></i></a>
-                            </td>
-
-                        </tr>
-                    <?php endforeach; ?>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <div class="row">
+                            <div class="col-md-10">
+                                DATA GURU
+                                <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Guru</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                            </div>
+                        </div>
 
 
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">NIP</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Bidang</th>
+                                    <th scope="col">Aksi</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">NIP</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Bidang</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php foreach ($Guru as $Gr) : ?>
+                                    <tr>
 
 
-                </tbody>
-            </table>
+                                        <td><?php echo $i++ ?></td>
+
+                                        <td><?php echo $Gr['nip'] ?></td>
+                                        <td><?php echo $Gr['nama'] ?></td>
+
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $Gr['foto']; ?>" width="90" height="50"></td>
+                                        <td><?php echo $Gr['bidang'] ?></td>
+                                        <td>
+                                            <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-warning btn-sm ">Edit</a> |
+                                            <a href="<?php echo base_url(); ?>guru/hapus/<?= $Gr['id']; ?>" class="btn btn-danger btn-sm  tombol-hapus3">Hapus</a>
+                                        </td>
+
+
+                                    </tr>
+                                <?php endforeach; ?>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
 
 
 
@@ -85,7 +119,7 @@
                             <form method="post" action="<?php echo base_url() . 'guru/tambah_aksi'; ?>">
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">NIP</label>
+                                    <label>NIP</label>
                                     <input type="text" name="nip" class="form-control">
                                 </div>
 
@@ -96,13 +130,25 @@
 
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Upload Foto</label>
+                                    <label>Upload Foto</label>
                                     <input type="file" name="foto" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Bidang</label>
-                                    <input type="text" name="bidang" class="form-control">
+                                    <label>Bidang</label>
+                                    <select class="form-control" name="bidang">
+                                        <option>--Pilih Bidang--</option>
+                                        <option>Bahasa Inggris/Inggris Maritim</option>
+                                        <option>PPKn</option>
+                                        <option>PJOK</option>
+                                        <option>Kepsek/PPKn</option>
+                                        <option>Bahasa Indonesia</option>
+                                        <option>Matematika</option>
+                                        <option>Produktif</option>
+                                        <option>Simulasi Digital</option>
+                                    </select>
+
+
                                 </div>
 
 

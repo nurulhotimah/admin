@@ -13,11 +13,11 @@ class Berita extends CI_Controller
         $data['berita'] = $this->m_berita->tampil_data()->result();
 
         // memanggil templates
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/berita/berita', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
     // untuk tambah data
@@ -80,11 +80,11 @@ class Berita extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['berita'] = $this->m_berita->edit_data($where, 'berita')->result();
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/berita/edit', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
 
@@ -149,10 +149,10 @@ class Berita extends CI_Controller
         $this->load->model('m_berita');
         $detail = $this->m_berita->detail_data($id);
         $data['detail'] = $detail;
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/berita/detail', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 }

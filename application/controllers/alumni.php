@@ -13,11 +13,11 @@ class ALumni extends CI_Controller
         $data['berita'] = $this->m_berita->tampil_data()->result();
 
         // memanggil templates
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/alumni/index', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
     // untuk tambah data
@@ -63,9 +63,9 @@ class ALumni extends CI_Controller
     public function hapus($id)
     {
         $where = array('id' => $id);
-        $this->m_berita->hapus_data($where, 'berita');
+        $this->m_alumni->hapus_data($where, 'alumni');
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('berita/index');
+        redirect('alumni/index');
     }
 
 
@@ -80,11 +80,11 @@ class ALumni extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['berita'] = $this->m_berita->edit_data($where, 'berita')->result();
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
-        $this->load->view('menu_admin/kelola_data/berita/edit', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('menu_admin/kelola_data/alumni/edit', $data);
+        $this->load->view('templates/footer');
     }
 
 
@@ -94,24 +94,25 @@ class ALumni extends CI_Controller
     public function update()
     {
         $id             = $this->input->post('id');
-        $judul          = $this->input->post('judul');
-        $tanggal        = $this->input->post('tanggal');
-        $gambar         = $_FILES['gambar'];
+        $nama          = $this->input->post('nama');
+        $tempat_bekerja        = $this->input->post('tempat_bekerja');
+        $pesan_kesan          = $this->input->post('pesan_kesan');
+        $foto         = $_FILES['foto'];
 
-        if ($gambar = '') {
+        if ($foto = '') {
         } else {
             $config['upload_path'] = './assets/foto';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('gambar')) {
+            if (!$this->upload->do_upload('foto')) {
                 $new_img = $this->upload->data('file_name');
-                $this->db->set('gambar', $new_img);
+                $this->db->set('foto', $new_img);
 
                 echo "Upload Gagal";
                 die();
             } else {
-                $gambar = $this->upload->data('file_name');
+                $foto = $this->upload->data('file_name');
             }
         }
 
@@ -122,9 +123,11 @@ class ALumni extends CI_Controller
 
         $data = array(
 
-            'judul'             => $judul,
-            'tanggal'           => $tanggal,
-            'gambar'            => $gambar
+
+            'nama'              => $nama,
+            'tempat_bekerja'    => $tempat_bekerja,
+            'pesan_kesan'       => $pesan_kesan,
+            'foto'            => $foto,
 
         );
 
@@ -132,9 +135,9 @@ class ALumni extends CI_Controller
         $where = array(
             'id'            => $id
         );
-        $this->m_berita->update_data($where, $data, 'berita');
+        $this->m_alumni->update_data($where, $data, 'alumni');
         $this->session->set_flashdata('flash', 'Diubah');
-        redirect('berita/index');
+        redirect('alumni/index');
     }
 
 
@@ -149,10 +152,10 @@ class ALumni extends CI_Controller
         $this->load->model('m_alumni');
         $detail = $this->m_alumni->detail_data($id);
         $data['detail'] = $detail;
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/kelola_data/alumni/detail', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 }

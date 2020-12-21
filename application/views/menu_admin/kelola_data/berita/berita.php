@@ -7,12 +7,13 @@
 
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+        <!-- <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1> -->
+
 
         <section class="content">
 
-            <!-- button tambah -->
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Berita</button>
+
+
 
 
             <?php
@@ -23,37 +24,80 @@
 
             <!-- looping berita -->
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Deskripsi</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Gambar</th>
 
-                        <th scope="col" colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($Berita as $B) : ?>
-                        <tr>
-                            <td><?php echo $i++ ?></td>
-                            <td><?php echo  character_limiter($B['judul'], 15) ?></td>
-                            <td><?php echo character_limiter($B['deskripsi'], 15) ?></td>
-                            <td><?php echo $B['tanggal'] ?></td>
-                            <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" width="90" height="50"></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>berita/detail/<?= $B['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
-                                <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus"><i class="fa fa-trash"></i></a>
-                            </td>
 
-                        </tr>
-                    <?php endforeach; ?>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <div class="row">
+                            <div class="col-md-10">
+                                DATA BERITA
+                                <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Berita</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                            </div>
+                        </div>
 
-                </tbody>
-            </table>
+
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul Berita</th>
+                                    <th>Deskripsi Berita</th>
+                                    <th>Tanggal</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul Berita</th>
+                                    <th>Deskripsi Berita</th>
+                                    <th>Tanggal</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php foreach ($Berita as $B) : ?>
+                                    <tr>
+
+
+                                        <td><?php echo $i++ ?></td>
+                                        <td><?php echo character_limiter($B['judul'], 20) ?></td>
+                                        <td><?php echo character_limiter($B['deskripsi'], 20) ?></td>
+                                        <td><?php echo $B['tanggal'] ?></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" width="90" height="50"></td>
+                                        <td>
+
+                                            <a href="<?php echo base_url(); ?>berita/edit/<?= $B['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text">Edit</span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>berita/hapus/<?= $B['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus">
+                                                <span class="text">Hapus</span>
+                                            </a>
+
+                                        </td>
+
+
+
+                                    </tr>
+                                <?php endforeach; ?>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- Modal -->
@@ -73,17 +117,17 @@
                             <form method="post" action="<?php echo base_url() . 'berita/tambah_aksi'; ?>">
 
                                 <div class="form-group">
-                                    <label>judul</label>
+                                    <label>Judul</label>
                                     <input type="text" name="judul" class="form-control" autocomplete='off'>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Deskripsi</label>
-                                    <input type="text" name="deskripsi" class="form-control" autocomplete='off'>
+                                    <label>Deskripsi Berita</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>tanggal</label>
+                                    <label>Tanggal</label>
                                     <input type="date" name="tanggal" class="form-control">
                                 </div>
 
@@ -100,7 +144,6 @@
                                 <?php echo form_close(); ?>
 
                         </div>
-                        <!-- akhir modal -->
 
         </section>
         <!-- section content -->

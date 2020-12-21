@@ -174,6 +174,7 @@
 
     <!-- program keahlian -->
     <div class="container">
+
         <div class="row my-3">
             <div class="col-md-6 my-4">
                 <h4 class="my-3">PROFILE SMK PELAYARAN NUSANTARA - KOTA SERANG</h3>
@@ -195,22 +196,29 @@
 
     <!-- program keahlian -->
     <div class="container">
+        <?php
+        $queryPrestasi = "SELECT * FROM prestasi";
+        $Prestasi = $this->db->query($queryPrestasi)->result_array();
+        $i = 1;
+        ?>
         <div class="row my-3">
             <div class="col-md-12 my-4">
-                <div class="card mb-3">
-                    <div class="row no-gutters">
-                        <div class="col-md-5">
-                            <img src="assets/img/galery/15.jpg" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h5 class="card-title">Memenangkan Lomba Beladiri Tingkat Nasional</h5>
-                                <p class="card-text">Dalam Ajang Lomba Karate Nasional SMK Pelayaran Mampu memenangkan Lomba Dengan Meraih Juara Ke - 3.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <?php foreach ($Prestasi as $P) : ?>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-5">
+                                <img src="<?php echo base_url(); ?>assets/foto/<?php echo $P['foto']; ?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $P['title-1'] ?></h5>
+                                    <p class="card-text"><?php echo $P['title-2'] ?></p>
+                                    <p class="card-text"><small class="text-muted"><?php echo $P['tanggal'] ?></small></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="col-12 text-center">
                 <a href="#" class="btn btn-primary btn-lg mb-5">Lihat Prestasi Lainnya</a>
@@ -294,6 +302,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="row">
+                        
                         <div class="col-md-4 pendidik">
                             <div class="img-area">
                                 <img src="assets/img/guru/1.jpg" class="d-block w-100" alt="...">
@@ -529,15 +538,17 @@
         </div>
         <div class="container">
             <?php
-            $queryBerita = "SELECT * FROM berita";
+            $queryBerita = "SELECT * from berita LIMIT 1";
             $Berita = $this->db->query($queryBerita)->result_array();
 
             ?>
-            <div class="row my-3">
-                <div class="card-deck">
-                    <div class="card berita">
-                        <a href="<?= base_url() ?>menu_utama/berita">
-                            <?php foreach ($Berita as $B) : ?>
+            <?php foreach ($Berita as $B) : ?>
+                <div class="row my-3">
+
+                    <div class="card-deck">
+                        <div class="card berita">
+                            <a href="<?= base_url() ?>menu_utama/berita">
+
                                 <img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $B['judul'] ?></h5>
@@ -547,11 +558,19 @@
                                 <div class="card-footer">
                                     <small class="text-muted"><?php echo $B['tanggal'] ?></small>
                                 </div>
-                        </a>
+                            </a>
+
+
+                        </div>
+
                     <?php endforeach; ?>
-                    </div>
+
+
+
+
 
                     <div class="card berita">
+
                         <a href="<?= base_url() ?>menu_utama/berita">
                             <img src="assets/img/galery/16.jpg" class="card-img-top" alt="...">
                             <div class="card-body py-4">
@@ -576,47 +595,49 @@
                             </div>
                         </a>
                     </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card-deck">
-                <div class="card berita">
-                    <a href="berita.html">
-                        <img src="assets/img/galery/19.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Model Akmil (Peraga SMK Pelnus Serang) 2020</h5>
-                            <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="card berita">
-                    <a href="berita.html">
-                        <img src="assets/img/galery/20.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Antara Corona dan Belajar, SMK Pelayaran Nusantara Kota Serang</h5>
-                            <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </a>
-                </div>
-                <div class="card berita">
-                    <a href="berita.html">
-                        <img src="assets/img/galery/22.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Pengumuman Kelulusan SMK Pelayaran Nusantara Kota Serang</h5>
-                            <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
 
-                    </a>
+                <div class="card-deck">
+                    <div class="card berita">
+                        <a href="berita.html">
+                            <img src="assets/img/galery/19.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Model Akmil (Peraga SMK Pelnus Serang) 2020</h5>
+                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="card berita">
+                        <a href="berita.html">
+                            <img src="assets/img/galery/20.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Antara Corona dan Belajar, SMK Pelayaran Nusantara Kota Serang</h5>
+                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card berita">
+                        <a href="berita.html">
+                            <img src="assets/img/galery/22.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Pengumuman Kelulusan SMK Pelayaran Nusantara Kota Serang</h5>
+                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+
+                        </a>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
     <div class="col-12 text-center my-4">

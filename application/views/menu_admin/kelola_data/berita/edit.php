@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-500"><?= $title; ?></h1>
+        <!-- <h1 class="h3 mb-4 text-gray-500"></h1> -->
         <section class="content">
             <div class="row">
                 <div class="col-lg-8">
@@ -11,9 +11,14 @@
                         <?php echo form_open_multipart('berita/update'); ?>
                         <form action="<?php echo base_url() . 'berita/update'; ?>" method="post">
                             <div class="form-group">
-                                <label>Nama</label>
+                                <label>Judul Berita</label>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $B->id ?>">
                                 <input type="text" name="judul" class="form-control" value="<?php echo $B->judul ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Deskripsi Berita</label>
+                                <input type="text" name="deskripsi" class="form-control" value="<?php echo $B->deskripsi ?>">
                             </div>
 
                             <div class="form-group">

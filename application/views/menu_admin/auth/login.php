@@ -11,12 +11,17 @@
                     <div class="row">
 
                         <div class="col-lg">
-                            <div class="p-5">
+                            <div class="p-3">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Halaman Login</h1>
+                                    <img src="assets/img/pelnus/logo.ico" width="70px" alt="">
+                                    <h2 class="h4 text-gray-900 mb-2">Selamat Datang di Halaman Login</h2>
+                                    <h6 class="mt-2">SMK Pelayan Nusantara Serang</h6>
+
+
+
                                 </div>
                                 <?= $this->session->flashdata('message'); ?>
-                                <form class="user" method="post" action="<?= base_url('auth'); ?>">
+                                <form class=" user" method="post" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Masukan Alamat Email" value="<?= set_value('email'); ?>">
                                         <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>

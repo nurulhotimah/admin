@@ -131,24 +131,56 @@ const flashData5 = $('.flash-data5').data('flashdata5');
 
 if(flashData4){
     Swal.fire({
-        title: 'Data Ekstrakulikuler ' ,
+        title: 'Data Prestasi ' ,
         text: 'Berhasil ' + flashData5,
         icon: 'success',
     })
 }
 
 // tombol hapus
-$('.tombol-hapus4').on('click', function(e){
+$('.tombol-hapus5').on('click', function(e){
     e.preventDefault();
     const href = $(this).attr('href');
     Swal.fire({
         title: 'Apakah anda yakin?',
-        text: "Data Ekstrakulikuler akan dihapus",
+        text: "Data Prestasi akan dihapus",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Hapus Data Ekstrakulikuler'
+        confirmButtonText: 'Hapus Data Prestasi'
+        }).then((result) => {
+        if (result.value) {
+            
+            document.location.href = href;
+            
+        }
+        })
+
+});
+
+const flashData6= $('.flash-data6').data('flashdata6');
+
+if(flashData4){
+    Swal.fire({
+        title: 'Data Alumni ' ,
+        text: 'Berhasil ' + flashData6,
+        icon: 'success',
+    })
+}
+
+// tombol hapus
+$('.tombol-hapus6').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href');
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data Alumni akan dihapus",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data Alumni'
         }).then((result) => {
         if (result.value) {
             

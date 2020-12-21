@@ -7,11 +7,11 @@
 
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+
 
         <section class="content">
 
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Ekstrakulikuler</button>
+
 
 
             <?php
@@ -24,42 +24,78 @@
 
 
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Organisasi</th>
-                        <th scope="col">Pembina</th>
-                        <th scope="col">Ketua</th>
-                        <th scope="col">Foto</th>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <div class="row">
+                            <div class="col-md-10">
+                                DATA EKSTRAKULIKULER
+                                <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Ekstrakulikuler</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                            </div>
+                        </div>
 
 
-                        <th scope="col" colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($Ekstrakulikuler as $Ekstra) : ?>
-                        <tr>
-                            <td><?php echo $i++ ?></td>
-                            <td><?php echo $Ekstra['nama'] ?></td>
-                            <td><?php echo $Ekstra['pembina'] ?></td>
-                            <td><?php echo $Ekstra['ketua'] ?></td>
-                            <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $Ekstra['foto']; ?>" width="90" height="50"></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>ekstrakulikuler/detail/<?= $Ekstra['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
-                                <a href="<?php echo base_url(); ?>ekstrakulikuler/edit/<?= $Ekstra['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>ekstrakulikuler/hapus/<?= $Ekstra['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus4"><i class="fa fa-trash"></i></a>
-                            </td>
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Organisasi</th>
+                                    <th>Pembina</th>
+                                    <th>Ketua</th>
+                                    <th>Logo Organisasi</th>
+                                    <th>Aksi</th>
 
-                        </tr>
-                    <?php endforeach; ?>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Organisasi</th>
+                                    <th>Pembina</th>
+                                    <th>Ketua</th>
+                                    <th>Logo Organisasi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php foreach ($Ekstrakulikuler as $EK) : ?>
+                                    <tr>
+
+
+                                        <td><?php echo $i++ ?></td>
+                                        <td><?php echo character_limiter($EK['nama'], 30) ?></td>
+                                        <td><?php echo character_limiter($EK['pembina'], 30) ?></td>
+                                        <td><?php echo $EK['ketua'] ?></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $EK['foto']; ?>" width="90" height="50"></td>
+                                        <td>
+
+                                            <a href="<?php echo base_url(); ?>ekstrakulikuler/edit/<?= $EK['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text">Edit</span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>ekstrakulikuler/hapus/<?= $EK['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus4">
+                                                <span class="text">Hapus</span>
+                                            </a>
+
+                                        </td>
 
 
 
+                                    </tr>
+                                <?php endforeach; ?>
 
-                </tbody>
-            </table>
 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 
 

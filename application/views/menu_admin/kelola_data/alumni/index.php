@@ -1,18 +1,19 @@
 <!-- Begin Page Content -->
 <div class="content-wrapper">
     <div class="container-fluid">
-        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+        <div class="flash-data6" data-flashdata6="<?= $this->session->flashdata('flash'); ?>"></div>
         <?php if ($this->session->flashdata('flash')) : ?>
         <?php endif; ?>
 
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1>
+        <!-- <h1 class="h3 mb-4 text-primary-800"><?= $title; ?></h1> -->
+
 
         <section class="content">
 
-            <!-- button tambah -->
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah Alumni</button>
+
+
 
 
             <?php
@@ -23,37 +24,80 @@
 
             <!-- looping berita -->
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Tempat Bekerja</th>
-                        <th scope="col">Pesan dan Kesan</th>
-                        <th scope="col">Foto</th>
 
-                        <th scope="col" colspan="2">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($Alumni as $A) : ?>
-                        <tr>
-                            <td><?php echo $i++ ?></td>
-                            <td><?php echo $A['nama'] ?></td>
-                            <td><?php echo $A['tempat_bekerja'] ?></td>
-                            <td><?php echo  character_limiter($A['pesan_kesan'], 3) ?></td>
-                            <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $A['foto']; ?>" width="90" height="50"></td>
-                            <td>
-                                <a href="<?php echo base_url(); ?>alumni/detail/<?= $A['id']; ?>" class="btn btn-success btn-sm ml-3"><i class="fa fa-search-plus"></i></a>
-                                <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-primary btn-sm ml-3"><i class="fa fa-edit"></i></a>
-                                <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-sm ml-3 tombol-hapus"><i class="fa fa-trash"></i></a>
-                            </td>
 
-                        </tr>
-                    <?php endforeach; ?>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <div class="row">
+                            <div class="col-md-10">
+                                DATA Alumni
+                                <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Alumni</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                            </div>
+                        </div>
 
-                </tbody>
-            </table>
+
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Tempat Bekerja</th>
+                                    <th>Pesan dan Kesan</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Tempat Bekerja</th>
+                                    <th>Pesan dan Kesan</th>
+                                    <th>Foto</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php foreach ($Alumni as $A) : ?>
+                                    <tr>
+
+
+                                        <td><?php echo $i++ ?></td>
+                                        <td><?php echo character_limiter($A['nama'], 20) ?></td>
+                                        <td><?php echo character_limiter($A['tempat_bekerja'], 20) ?></td>
+                                        <td><?php echo  character_limiter($A['pesan_kesan'], 20) ?></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $A['foto']; ?>" width="90" height="50"></td>
+                                        <td>
+
+                                            <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text">Edit</span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus6">
+                                                <span class="text">Hapus</span>
+                                            </a>
+
+                                        </td>
+
+
+
+                                    </tr>
+                                <?php endforeach; ?>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- Modal -->
@@ -61,25 +105,25 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel">Form Tambah Alumni</h4>
+                            <h4 class="modal-title" id="exampleModalLabel">Form Tambah Berita</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
 
-                        <!-- modal tambah berita -->
+                        <!-- modal tambah alumni -->
                         <div class="modal-body">
                             <?php echo form_open_multipart('alumni/tambah_aksi'); ?>
                             <form method="post" action="<?php echo base_url() . 'alumni/tambah_aksi'; ?>">
 
                                 <div class="form-group">
-                                    <label>Nama</label>
+                                    <label>Nama Alumni</label>
                                     <input type="text" name="nama" class="form-control" autocomplete='off'>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Tempat Bekerja</label>
-                                    <input type="text" name="tempat_bekerja" class="form-control">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tempat_bekerja"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -100,7 +144,6 @@
                                 <?php echo form_close(); ?>
 
                         </div>
-                        <!-- akhir modal -->
 
         </section>
         <!-- section content -->

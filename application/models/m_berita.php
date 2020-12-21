@@ -6,6 +6,14 @@ class M_berita extends CI_Model
         // nampilin data
         return $this->db->get('berita');
     }
+    public function read()
+    {
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->limit(1, 'asc');
+        $query = $this->db->get();
+        return $query;
+    }
     // input ke database
     public function input_data($data, $table)
     {
