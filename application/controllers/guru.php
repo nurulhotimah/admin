@@ -41,8 +41,7 @@ class Guru extends CI_Controller
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto')) {
 
-                $new_img = $this->upload->data('file_name');
-                $this->db->set('foto', $new_img);
+
 
                 echo "Upload Gagal";
                 die();
@@ -109,8 +108,32 @@ class Guru extends CI_Controller
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('foto', $new_img);
 
-                echo "Upload Gagal";
-                die();
+                $id             = $this->input->post('id');
+                $nip            = $this->input->post('nip');
+                $nama           = $this->input->post('nama');
+                $bidang         = $this->input->post('bidang');
+
+                $data = array(
+
+
+                    'nip'               => $nip,
+                    'nama'              => $nama,
+                    'foto'              => $gambar,
+                    'bidang'            => $bidang
+
+
+
+
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_guru->update_data($where, $data, 'guru');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('guru/index');
             } else {
                 $gambar = $this->upload->data('file_name');
             }
@@ -123,7 +146,7 @@ class Guru extends CI_Controller
 
         $data = array(
 
-            'id'                => $id,
+
             'nip'               => $nip,
             'nama'              => $nama,
             'foto'              => $gambar,

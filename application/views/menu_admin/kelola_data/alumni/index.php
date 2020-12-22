@@ -85,7 +85,7 @@
                                             <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
                                                 <span class="text"><i class="fas fa-edit"></i></span>
                                             </a> |
-                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus">
+                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus6">
                                                 <span class="text"><i class="fas fa-trash"></i></span>
                                             </a>
 

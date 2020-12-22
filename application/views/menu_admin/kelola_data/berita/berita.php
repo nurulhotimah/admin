@@ -75,7 +75,7 @@
                                         <td><?php echo character_limiter($B['judul'], 20) ?></td>
                                         <td><?php echo character_limiter($B['deskripsi'], 20) ?></td>
                                         <td><?php echo $B['tanggal'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/berita/<?php echo $B['gambar']; ?>" width="50" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/berita/<?php echo $B['gambar']; ?>" width="60" height="50"></td>
                                         <td>
                                             <a href="<?php echo base_url(); ?>berita/detail/<?= $B['id']; ?>" class="btn btn-success btn-icon-split btn-sm">
                                                 <span class="text"><i class="fas fa-eye"></i></span>

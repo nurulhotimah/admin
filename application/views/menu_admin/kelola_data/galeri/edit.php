@@ -8,6 +8,7 @@
             <div class="row ">
                 <div class="col-lg-8">
                     <?php foreach ($galeri as $G) { ?>
+                        <?php echo form_open_multipart('galeri/update'); ?>
                         <form action="<?php echo base_url() . 'galeri/update'; ?>" method="post">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Judul</label>

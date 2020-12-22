@@ -2,6 +2,7 @@
 class Galeri extends CI_Controller
 {
 
+
     public function __construct()
     {
         parent::__construct();
@@ -9,15 +10,15 @@ class Galeri extends CI_Controller
             redirect('auth');
         }
     }
-    public  function index()
+    public function index()
     {
-        // title
+        // untuk title
         $data['title'] = 'Galeri';
 
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-
+        //memanggil model tampil data
         $data['galeri'] = $this->m_galeri->tampil_data()->result();
 
         // memanggil templates
@@ -28,7 +29,7 @@ class Galeri extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    // untuk menambah data
+    // untuk tambah data
     public function tambah_aksi()
     {
         $id             = $this->input->post('id');
@@ -38,7 +39,7 @@ class Galeri extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto/galeri';
+            $config['upload_path'] = './assets/foto/galeri/';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -49,19 +50,19 @@ class Galeri extends CI_Controller
                 $gambar = $this->upload->data('file_name');
             }
         }
+        $deskripsi        = $this->input->post('deskripsi');
 
         $data = array(
             'id'                => $id,
             'judul'             => $judul,
             'tanggal'           => $tanggal,
             'gambar'            => $gambar,
+            'deskripsi'         => $deskripsi
 
 
         );
 
         $this->m_galeri->input_data($data, 'galeri');
-
-        // flash data untuk alert
         $this->session->set_flashdata('flash', 'Ditambahkan');
 
         redirect('galeri/index');
@@ -77,13 +78,16 @@ class Galeri extends CI_Controller
     }
 
 
-    // untuk edit
+    // untuk edit data
     public function edit($id)
     {
 
         $where = array('id' => $id);
         $data['title'] = 'Edit Galeri';
+
+        // memanggil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['galeri'] = $this->m_galeri->edit_data($where, 'galeri')->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -105,24 +109,23 @@ class Galeri extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto/galeri';
+            $config['upload_path'] = './assets/foto/galeri/';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('gambar')) {
-
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('gambar', $new_img);
 
                 $id             = $this->input->post('id');
                 $judul          = $this->input->post('judul');
                 $tanggal        = $this->input->post('tanggal');
+
                 $data = array(
 
-                    'id'                => $id,
                     'judul'             => $judul,
                     'tanggal'           => $tanggal,
-                    'gambar'            => $gambar,
+                    'gambar'            => $gambar
 
                 );
 
@@ -142,13 +145,12 @@ class Galeri extends CI_Controller
 
 
 
+
         $data = array(
 
-            'id'                => $id,
             'judul'             => $judul,
             'tanggal'           => $tanggal,
-            'gambar'            => $gambar,
-
+            'gambar'            => $gambar
 
         );
 
@@ -158,18 +160,18 @@ class Galeri extends CI_Controller
         );
         $this->m_galeri->update_data($where, $data, 'galeri');
         $this->session->set_flashdata('flash', 'Diubah');
-        redirect('galeri/index');
+        redirect('berita/index');
     }
 
 
     // untuk menampilkan data pada option detail
     public function detail($id)
     {
-
+        // untuk title
         $data['title'] = 'Detail';
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // untuk menampilkan data dari database
+
         $this->load->model('m_galeri');
         $detail = $this->m_galeri->detail_data($id);
         $data['detail'] = $detail;

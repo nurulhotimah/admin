@@ -31,7 +31,7 @@
                                 <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Prestasi</button>
                             </div>
                             <div class="col-md-2">
-                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2 " target="_blank">Lihat Web</a>
                             </div>
                         </div>
 

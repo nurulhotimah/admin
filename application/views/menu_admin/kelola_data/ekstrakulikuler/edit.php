@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                                <input type="file" class="custom-file-input" id="gambar" name="foto">
                                                 <label class="custom-file-label" for="gambar">Choose file</label>
                                             </div>
                                         </div>

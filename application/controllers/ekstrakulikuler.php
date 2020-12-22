@@ -56,7 +56,7 @@ class Ekstrakulikuler extends CI_Controller
             'nama'              => $nama,
             'pembina'           => $pembina,
             'ketua'             => $ketua,
-            'foto'              => $foto
+            'foto'              => $foto,
 
 
         );
@@ -138,7 +138,7 @@ class Ekstrakulikuler extends CI_Controller
                 $where = array(
                     'id'            => $id
                 );
-                $this->m_berita->update_data($where, $data, 'ekstrakulikuler');
+                $this->m_ekstrakulikuler->update_data($where, $data, 'ekstrakulikuler');
                 $this->session->set_flashdata('flash', 'Diubah');
                 redirect('ekstrakulikuler/index');
             } else {
@@ -165,7 +165,7 @@ class Ekstrakulikuler extends CI_Controller
         $where = array(
             'id'            => $id
         );
-        $this->m_berita->update_data($where, $data, 'ekstrakulikuler');
+        $this->m_ekstrakulikuler->update_data($where, $data, 'ekstrakulikuler');
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('ekstrakulikuler/index');
     }

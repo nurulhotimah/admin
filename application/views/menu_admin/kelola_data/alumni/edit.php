@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <!-- <h1 class="h3 mb-4 text-gray-500"></h1> -->
+        <h1 class="h3 mb-4 text-gray-500">Edit Data Alumni</h1>
         <section class="content">
             <div class="row">
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMK Pelayaran Nusantara Kota Serang | Home</title>
-    <link rel="shortcut icon" href="assets/img/logo.ico">
+    <link rel="shortcut icon" href="<?= base_url(); ?>assets_2/img/logo.ico">
 
     <!-- boosttrap -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets_2/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt="logo" title="Logo"></a>
+            <a href="index.html" class="navbar-brand"><img src="<?= base_url(); ?>assets_2/img/logo.png" alt="logo" title="Logo"></a>
             <div class="judul-logo">
                 <h3>SMK PELAYARAN NUSANTARA <br>KOTA SERANG</h3>
             </div>
@@ -197,29 +197,31 @@
     <!-- program keahlian -->
     <div class="container">
         <?php
-        $queryPrestasi = "SELECT * FROM prestasi";
+        $queryPrestasi = "SELECT * FROM prestasi LIMIT 3";
         $Prestasi = $this->db->query($queryPrestasi)->result_array();
         $i = 1;
         ?>
         <div class="row my-3">
-            <div class="col-md-12 my-4">
-                <?php foreach ($Prestasi as $P) : ?>
+            <?php foreach ($Prestasi as $P) : ?>
+                <div class="col-md-12 my-2">
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-5">
-                                <img src="<?php echo base_url(); ?>assets/foto/<?php echo $P['foto']; ?>" class="card-img" alt="...">
+                                <img src="<?php echo base_url(); ?>assets/foto/prestasi/<?php echo $P['foto']; ?>" class="card-img" alt="...">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $P['title-1'] ?></h5>
-                                    <p class="card-text"><?php echo $P['title-2'] ?></p>
+                                    <h5 class="card-title"><?php echo $P['nama_prestasi'] ?></h5>
+                                    <p class="card-text"><?php echo $P['deskripsi'] ?></p>
                                     <p class="card-text"><small class="text-muted"><?php echo $P['tanggal'] ?></small></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+
+                </div>
+            <?php endforeach; ?>
+
             <div class="col-12 text-center">
                 <a href="#" class="btn btn-primary btn-lg mb-5">Lihat Prestasi Lainnya</a>
             </div>
@@ -252,40 +254,28 @@
 
 
     <div class="container ekstrakurikuler d-none d-md-block">
+        <?php
+        $queryEks = "SELECT * from ekstrakulikuler";
+        $Eks = $this->db->query($queryEks)->result_array();
+
+        ?>
         <div class="row mx-auto my-3 section-padding">
-            <div class="col-md-3 single-testi">
-                <div class="img-area">
-                    <img src="assets/img/galery/pramuka.png" alt="...">
+            <?php foreach ($Eks as $E) : ?>
+
+                <div class="col-md-3 single-testi">
+
+
+                    <div class="img-area">
+                        <img src="<?= base_url('assets/foto/ekstrakulikuler/') ?><?php echo $E['foto']; ?>" alt="...">
+                    </div>
+                    <div class="img-text my-2">
+                        <h5><?= $E['nama'] ?></h5>
+                    </div>
                 </div>
-                <div class="img-text my-2">
-                    <h5>PRAMUKA</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-area">
-                    <img src="assets/img/galery/paskibra.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="img-text my-2">
-                    <h5>PASKIBRAKA</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-area">
-                    <img src="assets/img/galery/merpati.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="img-text my-2">
-                    <h5>MERPATI PUTIH</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="img-area">
-                    <img src="assets/img/galery/6.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="img-text my-2">
-                    <h5>KELAUTAN</h5>
-                </div>
-            </div>
+
+            <?php endforeach; ?>
         </div>
+
     </div>
     <!-- End kepala sekolah -->
 
@@ -304,7 +294,7 @@
                     <div class="row">
                         <div class="col-md-4 pendidik">
                             <div class="img-area">
-                                <img src="assets/img/guru/1.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/1.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Mustafa Muchtar, S.H</h5>
@@ -313,7 +303,7 @@
                         </div>
                         <div class="col-md-4 pendidik d-none d-md-block">
                             <div class="img-area">
-                                <img src="assets/img/guru/2.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Agus Nurmalasari, S.Pd</h5>
@@ -322,7 +312,7 @@
                         </div>
                         <div class="col-md-4 pendidik d-none d-md-block">
                             <div class="img-area">
-                                <img src="assets/img/guru/3.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/3.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Kristina, S.Pdi</h5>
@@ -335,7 +325,7 @@
                     <div class="row">
                         <div class="col-md-4 pendidik">
                             <div class="img-area">
-                                <img src="assets/img/guru/4.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/4.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Asep Saefudin, S.Pd</h5>
@@ -344,7 +334,7 @@
                         </div>
                         <div class="col-md-4 pendidik d-none d-md-block">
                             <div class="img-area">
-                                <img src="assets/img/guru/5.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/5.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Ira Nurpialawati, S.Pd</h5>
@@ -353,7 +343,7 @@
                         </div>
                         <div class="col-md-4 pendidik d-none d-md-block">
                             <div class="img-area">
-                                <img src="assets/img/guru/6.jpg" class="d-block w-100" alt="...">
+                                <img src="<?= base_url(); ?>assets_2/img/guru/6.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="img-text my-2">
                                 <h5>Dudung Abdul Matin</h5>
@@ -451,24 +441,30 @@
             <div class="border-top border-primary w-25 mx-auto my-3"></div>
         </div>
         <div class="container">
+            <?php
+            $queryAlumni = "SELECT * from alumni";
+            $alumni = $this->db->query($queryAlumni)->result_array();
+
+            ?>
             <div class="row my-3">
-                <div class="col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="assets/img/galery/alumni2.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ahmad Resa Kurniawan</h5>
-                                    <p>Bekerja di TNI AU</p>
-                                    <p class="card-text">Saya Bangga dengan SMK Pelayaran Nusantara, Lulus Langsung Kerja</p>
+                <?php foreach ($alumni as $a) : ?>
+                    <div class="col-md-6">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="<?= base_url('assets/foto/alumni/') ?><?= $a['foto'] ?>" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $a['nama'] ?></h5>
+                                        <p>Bekerja di <?= $a['tempat_bekerja'] ?></p>
+                                        <p class="card-text"><?= $a['pesan_kesan'] ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -483,7 +479,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="col-12 text-center my-3">

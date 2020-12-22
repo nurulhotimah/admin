@@ -33,7 +33,7 @@
                                 <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Ekstrakulikuler</button>
                             </div>
                             <div class="col-md-2">
-                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2" target="_blank">Lihat Web</a>
                             </div>
                         </div>
 
@@ -75,12 +75,15 @@
                                         <td><?php echo $EK['ketua'] ?></td>
                                         <td><img src="<?php echo base_url(); ?>assets/foto/ekstrakulikuler/<?php echo $EK['foto']; ?>" width="90" height="50"></td>
                                         <td>
+                                            <a href="<?php echo base_url(); ?>ekstrakulikuler/detail/<?= $EK['id']; ?>" class="btn btn-success btn-icon-split btn-sm ">
+                                                <span class="text"><i class="fas fa-eye"></i></span>
+                                            </a> |
 
                                             <a href="<?php echo base_url(); ?>ekstrakulikuler/edit/<?= $EK['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
-                                                <span class="text">Edit</span>
+                                                <span class="text"><i class="fas fa-edit"></i></span>
                                             </a> |
                                             <a href="<?php echo base_url(); ?>ekstrakulikuler/hapus/<?= $EK['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus4">
-                                                <span class="text">Hapus</span>
+                                                <span class="text"><i class="fas fa-trash"></i></span>
                                             </a>
 
                                         </td>

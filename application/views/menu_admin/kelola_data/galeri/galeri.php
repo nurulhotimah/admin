@@ -35,7 +35,7 @@
                                 <button class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#exampleModal"> ++Tambah Galeri</button>
                             </div>
                             <div class="col-md-2">
-                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2">Lihat Web</a>
+                                <a href="<?= base_url('menu_utama/menu_utama/index'); ?>" class="btn btn-danger btn-sm ml-2" target="_blank">Lihat Web</a>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo $G['judul'] ?></td>
                                         <td><?php echo $G['tanggal'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/galeri/<?php echo $G['gambar']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/galeri/<?php echo $G['gambar']; ?>" width="60" height="50"></td>
                                         <td>
 
                                             <a href="<?php echo base_url(); ?>galeri/detail/<?= $G['id']; ?>" class="btn btn-success btn-icon-split btn-sm ">
@@ -82,7 +82,7 @@
                                             <a href="<?php echo base_url(); ?>galeri/edit/<?= $G['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
                                                 <span class="text"><i class="fas fa-edit"></i></span>
                                             </a> |
-                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus">
+                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus2">
                                                 <span class="text"><i class="fas fa-trash"></i></span>
                                             </a>
 

@@ -190,3 +190,13 @@ $('.tombol-hapus6').on('click', function(e){
         })
 
 });
+
+const flashData7= $('.flash-data7').data('flashdata7');
+
+if(flashData7){
+    Swal.fire({
+        title: 'Data Slider ' ,
+        text: 'Berhasil ' + flashData7,
+        icon: 'success',
+    })
+}
