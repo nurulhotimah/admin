@@ -74,7 +74,7 @@
                                         <td><?php echo character_limiter($C['title_1'], 20) ?></td>
                                         <td><?php echo character_limiter($C['title_2'], 20) ?></td>
                                         <td><?php echo $C['button'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/carousel/<?php echo $C['image']; ?>" width="10" height="10"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/carousel/<?php echo $C['image']; ?>" width="60" height="50"></td>
                                         <td>
                                             <a href="<?php echo base_url(); ?>carousel/edit/<?= $C['id']; ?>" class="btn btn-warning btn-icon-split btn-sm ml-3">
                                                 <span class="text"><i class="fas fa-edit"></i></span>

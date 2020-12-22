@@ -24,7 +24,7 @@
 
                 <tr>
                     <td>
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo $detail->foto; ?>" width="90" height="100">
+                        <img src="<?php echo base_url(); ?>assets/foto/guru/<?php echo $detail->foto; ?>" width="90" height="100">
                     </td>
                     <td></td>
                 </tr>

@@ -97,114 +97,97 @@
     <!-- End Navigation -->
 
     <div class="container py-3">
+        <?php
+        $queryBerita = "SELECT * from berita limit 1 ";
+        $Berita = $this->db->query($queryBerita)->result_array();
+
+        ?>
         <div class="row mt-3">
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header img-area">
-                        <img src="assets/img/galery/11.jpg" alt="" width="100%">
+            <?php foreach ($Berita as $B) : ?>
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header img-area">
+                            <img src="<?php echo base_url(); ?>assets/foto/berita/<?php echo $B['gambar']; ?>" alt="" width="100%">
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <h3 class="judul-berita"><?php echo  character_limiter($B['judul']) ?></h3>
+                                <hr>
+                                <p class="blockquote-footer isi-berita"><?php echo character_limiter($B['deskripsi']) ?></p>
+                            </blockquote>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"><?php echo $B['tanggal'] ?></small>
+                        </div>
+                    <?php endforeach; ?>
                     </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <h3 class="judul-berita">Kendala Belajar di Masa Covid-19</h3>
-                            <hr>
-                            <p class="blockquote-footer isi-berita">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nisi eveniet beatae aut sunt ipsum tenetur quo perspiciatis dignissimos soluta natus sit est, maiores, reiciendis pariatur perferendis. Eligendi, dicta fugit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi sequi nostrum doloremque vero, tempora aliquid totam. Tempore molestias inventore optio facilis harum animi eum unde. Quaerat at consequatur enim. Nisi? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium nulla facere quidem non animi quia iure, consectetur natus explicabo vel officiis. Quo, fuga quisquam a sit incidunt vero aut molestias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt vero sunt provident exercitationem ducimus laudantium, corrupti, cumque beatae, amet recusandae explicabo reprehenderit optio fugiat nemo deleniti dolorem. Voluptates, eveniet consequuntur. </p>
-                        </blockquote>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
 
-                <!-- berita lainnya -->
-                <div class="col-12 py-4">
-                    <h3 class="text-dark">Berita terbaru Lainnya</h3>
-                    <div class="border-top border-primary w-25"></div>
-                </div>
+                    <!-- berita lainnya -->
+                    <div class="col-12 py-4">
+                        <h3 class="text-dark">Berita terbaru Lainnya</h3>
+                        <div class="border-top border-primary w-25"></div>
+                    </div>
 
-                <div class="container mb-4">
-                    <div class="row py-3">
-                        <div class="card-deck">
-                            <div class="card berita">
-                                <a href="berita.html">
-                                    <img src="assets/img/galery/15.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Covid-19 dan Masa Depan Pendidikan Taruna/i SMK Pelayaran Serang</h5>
-                                        <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="container mb-4">
+                        <?php
+                        $queryBerita = "SELECT * from berita LIMIT 4";
+                        $Berita = $this->db->query($queryBerita)->result_array();
+
+                        ?>
+                        <div class="row py-3">
+                            <?php foreach ($Berita as $B) : ?>
+                                <div class="col-md-6">
+                                    <div class="card-deck">
+                                        <div class="card berita">
+                                            <a href="berita.html">
+                                                <img src="<?php echo base_url(); ?>assets/foto/berita/<?php echo $B['gambar']; ?>" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo  character_limiter($B['judul'], 20) ?></h5>
+                                                    <p class="card-text isi-berita"><?php echo character_limiter($B['deskripsi'], 50) ?></p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <small class="text-muted"><?php echo $B['tanggal'] ?></small>
+                                                </div>
+                                            </a>
+                                        </div>
+
                                     </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Last updated 3 mins ago</small>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="card berita">
-                                <a href="berita.html">
-                                    <img src="assets/img/galery/16.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Virus Corona Tak Membatasi Belajar Taruna/I SMK Pelayaran Nusantara</h5>
-                                        <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Last updated 3 mins ago</small>
-                                    </div>
-                                </a>
-                            </div>
+                                    <br>
+                                </div>
+
+                            <?php endforeach; ?>
+
+
                         </div>
                     </div>
-                    <div class="card-deck">
-                        <div class="card berita">
-                            <a href="berita.html">
-                                <img src="assets/img/galery/19.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Model Akmil (Peraga SMK Pelnus Serang) 2020</h5>
-                                    <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
-                            </a>
+                    <!-- akhir berita lainnya -->
+
+                </div>
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= base_url() ?>assets_2/img/kepsek.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Mustafa Muchtar, S.H</h5>
+                            <p class="card-text">Kepala Sekolah</p>
                         </div>
-                        <div class="card berita">
-                            <a href="berita.html">
-                                <img src="assets/img/galery/20.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Antara Corona dan Belajar, SMK Pelayaran Nusantara Kota Serang</h5>
-                                    <p class="card-text isi-berita">This card has supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">Last updated 3 mins ago</small>
-                                </div>
-                            </a>
-                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="https://dapo.kemdikbud.go.id/sekolah/89A5E13361A9ADA8D514" target="_blank">Dapodik</a></li>
+                            <li class="list-group-item"><a href="https://referensi.data.kemdikbud.go.id/nisn/index.php/Cindex/formcaribynama" target="_blank">Cek Nisn Siswa</a></li>
+                            <li class="list-group-item"><a href="https://info.gtk.kemdikbud.go.id/" target="_blank">Info GTK</a></li>
+                            <li class="list-group-item"><a href="https://siap-akm.pusmenjar.kemdikbud.go.id/login" target="_blank">AKM 2021</a></li>
+                            <li class="list-group-item"><a href="https://ppdb21.smkpelnusserang.sch.id/" target="_blank">PPDB 2021</a></li>
+                        </ul>
+                    </div>
+
+                    <h5 class="mt-4"> &nbspBerita Terbaru</h5>
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
+                            <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
+                            <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
+                        </ul>
                     </div>
                 </div>
-                <!-- akhir berita lainnya -->
-
-            </div>
-            <div class="col-md-3 d-none d-md-block">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/kepsek.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Mustafa Muchtar, S.H</h5>
-                        <p class="card-text">Kepala Sekolah</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="https://dapo.kemdikbud.go.id/sekolah/89A5E13361A9ADA8D514" target="_blank">Dapodik</a></li>
-                        <li class="list-group-item"><a href="https://referensi.data.kemdikbud.go.id/nisn/index.php/Cindex/formcaribynama" target="_blank">Cek Nisn Siswa</a></li>
-                        <li class="list-group-item"><a href="https://info.gtk.kemdikbud.go.id/" target="_blank">Info GTK</a></li>
-                        <li class="list-group-item"><a href="https://siap-akm.pusmenjar.kemdikbud.go.id/login" target="_blank">AKM 2021</a></li>
-                        <li class="list-group-item"><a href="https://ppdb21.smkpelnusserang.sch.id/" target="_blank">PPDB 2021</a></li>
-                    </ul>
-                </div>
-
-                <h5 class="mt-4"> &nbspBerita Terbaru</h5>
-                <div class="card" style="width: 18rem;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
-                        <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
-                        <li class="list-group-item"><a href="#">Berita terkait covid 19..</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 
