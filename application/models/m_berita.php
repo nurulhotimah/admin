@@ -10,7 +10,7 @@ class M_berita extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('berita');
-        $this->db->limit(1, 'asc');
+        $this->db->limit(3, 'asc');
         $query = $this->db->get();
         return $query;
     }

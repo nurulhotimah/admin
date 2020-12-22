@@ -2,6 +2,13 @@
 
 class Guru extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         // title
@@ -28,11 +35,15 @@ class Guru extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/guru';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto')) {
+
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('foto', $new_img);
+
                 echo "Upload Gagal";
                 die();
             } else {
@@ -89,7 +100,7 @@ class Guru extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/guru';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);

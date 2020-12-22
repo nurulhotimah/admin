@@ -6,29 +6,25 @@
         <!-- <h1 class="h3 mb-4 text-gray-500"></h1> -->
         <section class="content">
             <div class="row">
-                <?php
-                $queryAlumni = "SELECT * FROM alumni";
-                $Alumni = $this->db->query($queryAlumni)->result_array();
-            
-                ?>
+
                 <div class="col-lg-8">
-                    <?php foreach ($Alumni as $A) { ?>
+                    <?php foreach ($alumni as $A) { ?>
                         <?php echo form_open_multipart('alumni/update'); ?>
                         <form action="<?php echo base_url() . 'alumni/update'; ?>" method="post">
                             <div class="form-group">
                                 <label>Nama Alumni</label>
-                                <input type="hidden" name="id" class="form-control" value="<?php echo $A['id'] ?>">
-                                <input type="text" name="nama" class="form-control" value="<?php echo $A['nama'] ?>">
+                                <input type="hidden" name="id" class="form-control" value="<?php echo $A->id ?>">
+                                <input type="text" name="nama" class="form-control" value="<?php echo $A->nama ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Tempat Bekerja</label>
-                                <input type="text" name="tempat_bekerja" class="form-control" value="<?php echo $A['tempat_bekerja'] ?>">
+                                <input type="text" name="tempat_bekerja" class="form-control" value="<?php echo $A->tempat_bekerja ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Pesan dan Kesan</label>
-                                <input type="text" name="pesan_kesan" class="form-control" value="<?php echo $A['pesan_kesan'] ?>">
+                                <input type="text" name="pesan_kesan" class="form-control" value="<?php echo $A->pesan_kesan ?>">
                             </div>
 
                             <div class="form-group row">
@@ -36,7 +32,7 @@
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <img src="<?= base_url('assets/foto/') . $A['foto'] ?>" class="img-thumbnail">
+                                            <img src="<?= base_url('assets/foto/alumni/') . $A->foto ?>" class="img-thumbnail">
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">

@@ -7,27 +7,24 @@
         <section class="content">
             <div class="row">
                 <div class="col-lg-8">
-                    <?php
-                    $queryEkstra = "SELECT * FROM ekstrakulikuler";
-                    $Ekstrakulikuler = $this->db->query($queryEkstra)->result_array();
-                    ?>
-                    <?php foreach ($Ekstrakulikuler as $Ekstra) { ?>
+
+                    <?php foreach ($berita as $Ekstra) { ?>
                         <?php echo form_open_multipart('ekstrakulikuler/update'); ?>
                         <form action="<?php echo base_url() . 'ekstrakulikuler/update'; ?>" method="post">
                             <div class="form-group">
                                 <label>Nama Organisasi</label>
-                                <input type="hidden" name="id" class="form-control" value="<?php echo $Ekstra['id'] ?>">
-                                <input type="text" name="nama" class="form-control" value="<?php echo $Ekstra['nama'] ?>">
+                                <input type="hidden" name="id" class="form-control" value="<?php echo $Ekstra->id ?>">
+                                <input type="text" name="nama" class="form-control" value="<?php echo $Ekstra->nama ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Pembina</label>
-                                <input type="text" name="pembina" class="form-control" value="<?php echo $Ekstra['pembina'] ?>">
+                                <input type="text" name="pembina" class="form-control" value="<?php echo $Ekstra->pembina ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Ketua</label>
-                                <input type="text" name="ketua" class="form-control" value="<?php echo $Ekstra['ketua'] ?>">
+                                <input type="text" name="ketua" class="form-control" value="<?php echo $Ekstra->ketua ?>">
                             </div>
 
 
@@ -36,7 +33,7 @@
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <img src="<?= base_url('assets/foto/') . $Ekstra['foto'] ?>" class="img-thumbnail">
+                                            <img src="<?= base_url('assets/foto/ekstrakulikuler/') . $Ekstra->foto ?>" class="img-thumbnail">
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">

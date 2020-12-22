@@ -2,6 +2,13 @@
 class Galeri extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public  function index()
     {
         // title
@@ -31,7 +38,7 @@ class Galeri extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/galeri';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -98,7 +105,7 @@ class Galeri extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/galeri';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -107,8 +114,25 @@ class Galeri extends CI_Controller
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('gambar', $new_img);
 
-                echo "Upload Gagal";
-                die();
+                $id             = $this->input->post('id');
+                $judul          = $this->input->post('judul');
+                $tanggal        = $this->input->post('tanggal');
+                $data = array(
+
+                    'id'                => $id,
+                    'judul'             => $judul,
+                    'tanggal'           => $tanggal,
+                    'gambar'            => $gambar,
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_galeri->update_data($where, $data, 'galeri');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('galeri/index');
             } else {
                 $gambar = $this->upload->data('file_name');
             }
@@ -120,9 +144,11 @@ class Galeri extends CI_Controller
 
         $data = array(
 
+            'id'                => $id,
             'judul'             => $judul,
             'tanggal'           => $tanggal,
-            'gambar'            => $gambar
+            'gambar'            => $gambar,
+
 
         );
 
@@ -130,7 +156,7 @@ class Galeri extends CI_Controller
         $where = array(
             'id'            => $id
         );
-        $this->m_berita->update_data($where, $data, 'galeri');
+        $this->m_galeri->update_data($where, $data, 'galeri');
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('galeri/index');
     }

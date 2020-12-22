@@ -72,7 +72,7 @@
                                         <td><?php echo $Gr['nip'] ?></td>
                                         <td><?php echo $Gr['nama'] ?></td>
 
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $Gr['foto']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/guru/<?php echo $Gr['foto']; ?>" width="90" height="50"></td>
                                         <td><?php echo $Gr['bidang'] ?></td>
                                         <td>
                                             <a href="<?php echo base_url(); ?>guru/edit/<?= $Gr['id']; ?>" class="btn btn-warning btn-sm ">Edit</a> |

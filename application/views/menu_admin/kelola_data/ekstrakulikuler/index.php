@@ -73,7 +73,7 @@
                                         <td><?php echo character_limiter($EK['nama'], 30) ?></td>
                                         <td><?php echo character_limiter($EK['pembina'], 30) ?></td>
                                         <td><?php echo $EK['ketua'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $EK['foto']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/ekstrakulikuler/<?php echo $EK['foto']; ?>" width="90" height="50"></td>
                                         <td>
 
                                             <a href="<?php echo base_url(); ?>ekstrakulikuler/edit/<?= $EK['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">

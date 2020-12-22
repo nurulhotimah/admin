@@ -129,7 +129,7 @@ $('.tombol-hapus4').on('click', function(e){
 
 const flashData5 = $('.flash-data5').data('flashdata5');
 
-if(flashData4){
+if(flashData5){
     Swal.fire({
         title: 'Data Prestasi ' ,
         text: 'Berhasil ' + flashData5,
@@ -161,7 +161,7 @@ $('.tombol-hapus5').on('click', function(e){
 
 const flashData6= $('.flash-data6').data('flashdata6');
 
-if(flashData4){
+if(flashData6){
     Swal.fire({
         title: 'Data Alumni ' ,
         text: 'Berhasil ' + flashData6,

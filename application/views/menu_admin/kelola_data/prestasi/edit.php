@@ -8,25 +8,26 @@
             <div class="row ">
                 <div class="col-lg-8">
 
-                    <?php
-                    $queryPrestasi = "SELECT * from prestasi";
-                    $Prestasi = $this->db->query($queryPrestasi)->result_array();
 
-                    ?>
+                    <?php foreach ($berita as $P) { ?>
+                        <?php echo form_open_multipart('prestasi/update'); ?>
+                        <form action="<?php echo base_url() . 'prestasi/update'; ?>" method="post">
 
-                    <?php echo form_open_multipart('prestasi/update'); ?>
-                    <form action="<?php echo base_url() . 'prestasi/update'; ?>" method="post">
 
-                        <?php foreach ($Prestasi as $P) { ?>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nama Prestasi</label>
-                                <input type="hidden" name="id" class="form-control" value="<?php echo $P['id']; ?>">
-                                <input type="text" name="title-1" class="form-control" value="<?php echo $P['title-1']; ?>">
+                                <input type="hidden" name="id" class="form-control" value="<?php echo $P->id ?>">
+                                <input type="text" name="nama_prestasi" class="form-control" value="<?php echo $P->nama_prestasi ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Deskripsi Prestasi</label>
-                                <input type="text" name="nama" class="form-control" value="<?php echo $P['title-2']; ?>">
+                                <input type="text" name="deskripsi" class="form-control" value="<?php echo $P->deskripsi ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Deskripsi Prestasi</label>
+                                <input type="date" name="tanggal" class="form-control" value="<?php echo $P->tanggal ?>">
                             </div>
 
                             <div class="form-group row">
@@ -34,7 +35,7 @@
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <img src="<?= base_url('assets/foto/') . $P['foto']; ?>" class="img-thumbnail">
+                                            <img src="<?= base_url('assets/foto/prestasi/') . $P->foto ?>" class="img-thumbnail">
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">
@@ -51,8 +52,10 @@
                             <button type="reset" class="btn btn-danger">Reset</button>
                             <button type="submit" class="btn btn-primary">Ubah</button>
 
-                    </form>
-                <?php } ?>
+
+                        </form>
+                    <?php } ?>
+
                 </div>
             </div>
 

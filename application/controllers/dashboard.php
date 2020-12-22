@@ -1,6 +1,7 @@
 <?php
-class Admin extends CI_Controller
+class Dashboard extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -10,17 +11,20 @@ class Admin extends CI_Controller
     }
     public function index()
     {
-        // judul halaman
+        // untuk title
         $data['title'] = 'Dashboard';
+
         // mengambil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        //memanggil model tampil data
+        $data['berita'] = $this->m_berita->tampil_data()->result();
 
-
+        // memanggil templates
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('menu_admin/admin/index', $data);
+        $this->load->view('menu_admin/dashboard/index', $data);
         $this->load->view('templates/footer');
     }
 }

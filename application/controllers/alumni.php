@@ -1,6 +1,14 @@
 <?php
 class ALumni extends CI_Controller
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         // untuk title
@@ -31,7 +39,7 @@ class ALumni extends CI_Controller
 
         if ($foto = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/alumni';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -74,12 +82,12 @@ class ALumni extends CI_Controller
     {
 
         $where = array('id' => $id);
-        $data['title'] = 'ubah berita';
+        $data['title'] = 'Edit Alumni';
 
         // memanggil data session
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['berita'] = $this->m_berita->edit_data($where, 'berita')->result();
+        $data['alumni'] = $this->m_alumni->edit_data($where, 'alumni')->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -109,8 +117,29 @@ class ALumni extends CI_Controller
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('foto', $new_img);
 
-                echo "Upload Gagal";
-                die();
+                $id             = $this->input->post('id');
+                $nama          = $this->input->post('nama');
+                $tempat_bekerja        = $this->input->post('tempat_bekerja');
+                $pesan_kesan          = $this->input->post('pesan_kesan');
+
+
+                $data = array(
+
+
+                    'nama'              => $nama,
+                    'tempat_bekerja'    => $tempat_bekerja,
+                    'pesan_kesan'       => $pesan_kesan,
+                    'foto'            => $foto,
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_alumni->update_data($where, $data, 'alumni');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('alumni/index');
             } else {
                 $foto = $this->upload->data('file_name');
             }

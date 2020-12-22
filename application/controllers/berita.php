@@ -1,6 +1,15 @@
 <?php
 class Berita extends CI_Controller
 {
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         // untuk title
@@ -30,7 +39,7 @@ class Berita extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/berita/';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -100,7 +109,7 @@ class Berita extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/berita/';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -108,8 +117,25 @@ class Berita extends CI_Controller
                 $new_img = $this->upload->data('file_name');
                 $this->db->set('gambar', $new_img);
 
-                echo "Upload Gagal";
-                die();
+                $id             = $this->input->post('id');
+                $judul          = $this->input->post('judul');
+                $tanggal        = $this->input->post('tanggal');
+
+                $data = array(
+
+                    'judul'             => $judul,
+                    'tanggal'           => $tanggal,
+                    'gambar'            => $gambar
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_berita->update_data($where, $data, 'berita');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('berita/index');
             } else {
                 $gambar = $this->upload->data('file_name');
             }

@@ -25,7 +25,7 @@
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <img src="<?= base_url('assets/foto/') . $G->gambar ?>" class="img-thumbnail">
+                                            <img src="<?= base_url('assets/foto/galeri/') . $G->gambar ?>" class="img-thumbnail">
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">

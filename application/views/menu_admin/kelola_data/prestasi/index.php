@@ -69,14 +69,15 @@
 
                                         <td><?php echo $i++ ?></td>
 
-                                        <td><?php echo $P['title-1'] ?></td>
-                                        <td><?php echo $P['title-2'] ?></td>
+                                        <td><?php echo $P['nama_prestasi'] ?></td>
+                                        <td><?php echo $P['deskripsi'] ?></td>
                                         <td><?php echo $P['tanggal'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $P['foto']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/prestasi/<?php echo $P['foto']; ?>" width="90" height="50"></td>
 
                                         <td>
-                                            <a href="<?php echo base_url(); ?>prestasi/edit/<?= $P['id']; ?>" class="btn btn-warning btn-sm ">Edit</a> |
-                                            <a href="<?php echo base_url(); ?>prestasi/hapus/<?= $P['id']; ?>" class="btn btn-danger btn-sm  tombol-hapus5">Hapus</a>
+                                            <a href="<?php echo base_url(); ?>prestasi/detail/<?= $P['id']; ?>" class="btn btn-success btn-sm "><i class="fas fa-eye"></i></a> |
+                                            <a href="<?php echo base_url(); ?>prestasi/edit/<?= $P['id']; ?>" class="btn btn-warning btn-sm "><i class="fas fa-edit"></i></a> |
+                                            <a href="<?php echo base_url(); ?>prestasi/hapus/<?= $P['id']; ?>" class="btn btn-danger btn-sm  tombol-hapus5"><i class="fas fa-trash"></i></a>
                                         </td>
 
 
@@ -97,7 +98,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel">Form Tambah Prestasi</h4>
+                            <h4 class="modal-title" id="exampleModalLabel">Edit Perestasi</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -110,12 +111,12 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Nama Prestasi</label>
-                                    <input type="text" name="title-1" class="form-control">
+                                    <input type="text" name="nama_prestasi" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Deskripsi Prestasi</label>
-                                    <input type="text" name="title-2" class="form-control">
+                                    <input type="text" name="deskripsi" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -138,6 +139,7 @@
                                 <?php echo form_close(); ?>
 
                         </div>
+
 
         </section>
         <!-- section content -->

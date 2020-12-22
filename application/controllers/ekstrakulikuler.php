@@ -1,6 +1,14 @@
 <?php
 class Ekstrakulikuler extends CI_Controller
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         // untuk title
@@ -31,7 +39,7 @@ class Ekstrakulikuler extends CI_Controller
 
         if ($foto = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/ekstrakulikuler';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -101,13 +109,38 @@ class Ekstrakulikuler extends CI_Controller
 
         if ($foto = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/ekstrakulikuler';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto')) {
-                echo "Upload Gagal";
-                die();
+
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('foto', $new_img);
+
+                $id             = $this->input->post('id');
+                $nama           = $this->input->post('nama');
+                $pembina        = $this->input->post('pembina');
+                $ketua          = $this->input->post('ketua');
+
+                $data = array(
+
+
+
+                    'nama'              => $nama,
+                    'pembina'           => $pembina,
+                    'ketua'             => $ketua,
+                    'foto'              => $foto,
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_berita->update_data($where, $data, 'ekstrakulikuler');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('ekstrakulikuler/index');
             } else {
                 $foto = $this->upload->data('file_name');
             }

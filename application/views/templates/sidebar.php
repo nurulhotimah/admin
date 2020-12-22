@@ -19,7 +19,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link text-black-50" href="index.html">
+        <a class="nav-link text-black-50" href="<?= base_url('dashboard'); ?>">
             <i class="fas fa-fw fa-tachometer-alt text-black-50"></i>
             <span>Dashboard</span></a>
     </li>
@@ -49,11 +49,24 @@
     <div class="sidebar-heading text-dark">
         Menu
     </div>
-    <!-- menu management -->
+    <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-th-large text-black-50"></i>
+            <span class="text-black-50">Layout</span>
+        </a>
+
+        <div id="collapsePages2" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-light py-2 collapse-inner rounded">
+
+                <a class="collapse-item" href="<?= base_url('carousel'); ?>">
+                    <i class="fab fa-fw fa-slideshare"></i>
+                    <span>Carousel</span>
+                </a>
+                <!-- menu management -->
     <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder text-black-50"></i>
-            <span class="text-black-50">Kelola Menu</span>
+            <span class="text-black-50">Kelola Data Sekolah</span>
         </a>
         <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-light py-2 collapse-inner rounded">
@@ -82,10 +95,7 @@
                     <i class="fas fa-fw fa-graduation-cap"></i>
                     <span>Alumni</span>
                 </a>
-                <a class="collapse-item" href="<?= base_url('carousel'); ?>">
-                    <i class="fab fa-fw fa-slideshare"></i>
-                    <span>Carousel</span>
-                </a>
+
 
                 <div class="collapse-divider"></div>
             </div>

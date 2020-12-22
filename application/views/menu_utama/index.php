@@ -302,7 +302,6 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="row">
-                        
                         <div class="col-md-4 pendidik">
                             <div class="img-area">
                                 <img src="assets/img/guru/1.jpg" class="d-block w-100" alt="...">
@@ -497,32 +496,33 @@
 
     <div class="galery">
         <div class="col-12 text-center my-4">
+            <?php
+            $queryGaleri = "SELECT * from galeri LIMIT 3";
+            $Galeri = $this->db->query($queryGaleri)->result_array();
+
+            ?>
             <h1 class="text-dark">Galery / dokumentasi</h1>
             <div class="border-top border-primary w-25 mx-auto my-3"></div>
         </div>
         <div class="container">
             <div class="row my-3">
-                <div class="card-deck">
-                    <div class="card">
-                        <img src="assets/img/galery/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Kegiatan Kebersamaan pelatihan Berenang</p>
+                <?php foreach ($Galeri as $G) : ?>
+                    <div class="col-md-4">
+                        <div class="card-deck">
+                            <div class="card">
+                                <img src="<?php echo base_url(); ?>assets/foto/galeri/<?php echo $G['gambar']; ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Kegiatan Kebersamaan pelatihan Berenang</p>
+                                </div>
+                            </div>
+
                         </div>
+
+
                     </div>
-                    <div class="card">
-                        <img src="assets/img/galery/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Kegiatan Kebersamaan pelatihan Berenang</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/galery/3.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Kegiatan Kebersamaan pelatihan Berenang</p>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
+
         </div>
         <div class="col-12 text-center my-4">
             <a href="#" class="btn btn-primary btn-lg mb-5">Lihat semua Galery</a>
@@ -538,108 +538,45 @@
         </div>
         <div class="container">
             <?php
-            $queryBerita = "SELECT * from berita LIMIT 1";
+            $queryBerita = "SELECT * from berita LIMIT 3";
             $Berita = $this->db->query($queryBerita)->result_array();
 
             ?>
-            <?php foreach ($Berita as $B) : ?>
-                <div class="row my-3">
 
-                    <div class="card-deck">
-                        <div class="card berita">
-                            <a href="<?= base_url() ?>menu_utama/berita">
+            <div class="row my-3">
 
-                                <img src="<?php echo base_url(); ?>assets/foto/<?php echo $B['gambar']; ?>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $B['judul'] ?></h5>
-                                    <p class="card-text isi-berita"><?php echo character_limiter($B['deskripsi'], 50) ?></p>
+                <?php foreach ($Berita as $B) : ?>
+                    <div class="col-md-4">
+                        <div class="card-deck">
+                            <div class="card berita">
+                                <a href="<?= base_url() ?>menu_utama/berita">
 
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted"><?php echo $B['tanggal'] ?></small>
-                                </div>
-                            </a>
+                                    <img src="<?php echo base_url(); ?>assets/foto/berita/<?php echo $B['gambar']; ?>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo  character_limiter($B['judul'], 50) ?></h5>
+                                        <p class="card-text isi-berita"><?php echo character_limiter($B['deskripsi'], 50) ?></p>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted"><?php echo $B['tanggal'] ?></small>
+                                    </div>
+                                </a>
+
+
+                            </div>
 
 
                         </div>
-
-                    <?php endforeach; ?>
-
-
-
-
-
-                    <div class="card berita">
-
-                        <a href="<?= base_url() ?>menu_utama/berita">
-                            <img src="assets/img/galery/16.jpg" class="card-img-top" alt="...">
-                            <div class="card-body py-4">
-                                <h5 class="card-title">Virus Corona Tak Membatasi Belajar Taruna/I SMK Pelayaran Nusantara tahun 2020</h5>
-                                <p class="card-tex isi-berita">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </a>
                     </div>
-                    <div class="card berita">
-                        <a href="berita.html">
-                            <img src="assets/img/galery/17.jpg" class="card-img-top" alt="...">
-                            <div class="card-body py-4">
-                                <h5 class="card-title">Bidang Menejemen Mutu SMK Pelayaran Nusantara Menjaga Kualitas Taruna/I Menjadi Generasi "DJITU"?</h5>
-                                <p class="card-text isi-berita">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
 
-                            </div>
-                            <div class="card-footer mb-10">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-                </div>
 
-                <div class="card-deck">
-                    <div class="card berita">
-                        <a href="berita.html">
-                            <img src="assets/img/galery/19.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Model Akmil (Peraga SMK Pelnus Serang) 2020</h5>
-                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </a>
+                <?php endforeach; ?>
+            </div>
 
-                    </div>
-                    <div class="card berita">
-                        <a href="berita.html">
-                            <img src="assets/img/galery/20.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Antara Corona dan Belajar, SMK Pelayaran Nusantara Kota Serang</h5>
-                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card berita">
-                        <a href="berita.html">
-                            <img src="assets/img/galery/22.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Pengumuman Kelulusan SMK Pelayaran Nusantara Kota Serang</h5>
-                                <p class="card-text isi-berita">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last updated 3 mins ago</small>
-                            </div>
 
-                        </a>
-                    </div>
-                </div>
         </div>
     </div>
+
     <div class="col-12 text-center my-4">
         <a href="#" class="btn btn-primary btn-lg mb-5">Lihat semua Berita</a>
     </div>

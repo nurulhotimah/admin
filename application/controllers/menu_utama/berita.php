@@ -6,7 +6,7 @@ class Berita extends CI_Controller
 
         $data['berita'] = $this->m_berita->read()->result();
 
-        // memanggil templates
+        // memanggil templates\
 
         $this->load->view('menu_utama/berita', $data);
     }

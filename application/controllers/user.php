@@ -1,6 +1,14 @@
 <?php
 class User extends CI_Controller
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         $data['title'] = 'My Profile';
@@ -8,11 +16,11 @@ class User extends CI_Controller
 
         // echo 'selamat datang ' . $data['user']['name'];
 
-        $this->load->view('menu_admin/templates/header', $data);
-        $this->load->view('menu_admin/templates/sidebar', $data);
-        $this->load->view('menu_admin/templates/topbar', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('menu_admin/user/index', $data);
-        $this->load->view('menu_admin/templates/footer');
+        $this->load->view('templates/footer');
     }
 
     public function edit()

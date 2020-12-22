@@ -75,14 +75,18 @@
                                         <td><?php echo character_limiter($A['nama'], 20) ?></td>
                                         <td><?php echo character_limiter($A['tempat_bekerja'], 20) ?></td>
                                         <td><?php echo  character_limiter($A['pesan_kesan'], 20) ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $A['foto']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/alumni/<?php echo $A['foto']; ?>" width="90" height="50"></td>
                                         <td>
 
-                                            <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
-                                                <span class="text">Edit</span>
+                                            <a href="<?php echo base_url(); ?>alumni/detail/<?= $A['id']; ?>" class="btn btn-success btn-icon-split btn-sm ">
+                                                <span class="text"><i class="fas fa-eye"></i></span>
                                             </a> |
-                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus6">
-                                                <span class="text">Hapus</span>
+
+                                            <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text"><i class="fas fa-edit"></i></span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $A['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus">
+                                                <span class="text"><i class="fas fa-trash"></i></span>
                                             </a>
 
                                         </td>
@@ -105,7 +109,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel">Form Tambah Berita</h4>
+                            <h4 class="modal-title" id="exampleModalLabel">Form Tambah Alumni</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -144,7 +148,6 @@
                                 <?php echo form_close(); ?>
 
                         </div>
-
         </section>
         <!-- section content -->
 

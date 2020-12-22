@@ -72,14 +72,18 @@
                                         <td><?php echo $i++ ?></td>
                                         <td><?php echo $G['judul'] ?></td>
                                         <td><?php echo $G['tanggal'] ?></td>
-                                        <td><img src="<?php echo base_url(); ?>assets/foto/<?php echo $G['gambar']; ?>" width="90" height="50"></td>
+                                        <td><img src="<?php echo base_url(); ?>assets/foto/galeri/<?php echo $G['gambar']; ?>" width="90" height="50"></td>
                                         <td>
 
-                                            <a href="<?php echo base_url(); ?>galeri/edit/<?= $G['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
-                                                <span class="text">Edit</span>
+                                            <a href="<?php echo base_url(); ?>galeri/detail/<?= $G['id']; ?>" class="btn btn-success btn-icon-split btn-sm ">
+                                                <span class="text"><i class="fas fa-eye"></i></span>
                                             </a> |
-                                            <a href="<?php echo base_url(); ?>galeri/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus2">
-                                                <span class="text">Hapus</span>
+
+                                            <a href="<?php echo base_url(); ?>galeri/edit/<?= $G['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">
+                                                <span class="text"><i class="fas fa-edit"></i></span>
+                                            </a> |
+                                            <a href="<?php echo base_url(); ?>alumni/hapus/<?= $G['id']; ?>" class="btn btn-danger btn-icon-split btn-sm tombol-hapus">
+                                                <span class="text"><i class="fas fa-trash"></i></span>
                                             </a>
 
                                         </td>

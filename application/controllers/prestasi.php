@@ -2,6 +2,13 @@
 
 class Prestasi extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
     public function index()
     {
         // title
@@ -29,7 +36,7 @@ class Prestasi extends CI_Controller
 
         if ($foto = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/prestasi';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
@@ -68,7 +75,7 @@ class Prestasi extends CI_Controller
     {
 
         $where = array('id' => $id);
-        $data['title'] = 'Ubah Data Prestasi';
+        $data['title'] = 'Edit Data Prestasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['berita'] = $this->m_prestasi->edit_data($where, 'prestasi')->result();
         $this->load->view('templates/header', $data);
@@ -81,20 +88,45 @@ class Prestasi extends CI_Controller
     public function update()
     {
         $id               = $this->input->post('id');
-        $title_1          = $this->input->post('title-1');
-        $title_2          = $this->input->post('title-2');
+        $title_1          = $this->input->post('nama_prestasi');
+        $title_2          = $this->input->post('deskripsi');
         $tanggal          = $this->input->post('tanggal');
         $foto           = $_FILES['foto'];
 
         if ($foto = '') {
         } else {
-            $config['upload_path'] = './assets/foto';
+            $config['upload_path'] = './assets/foto/prestasi';
             $config['allowed_types'] = 'jpg|png|give';
 
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('foto')) {
-                echo "Upload Gagal";
-                die();
+
+                $new_img = $this->upload->data('file_name');
+                $this->db->set('foto', $new_img);
+
+                $id               = $this->input->post('id');
+                $title_1          = $this->input->post('nama_prestasi');
+                $title_2          = $this->input->post('deskripsi');
+                $tanggal          = $this->input->post('tanggal');
+
+                $data = array(
+
+                    'id'                => $id,
+                    'nama_prestasi'     => $title_1,
+                    'deskripsi'         => $title_2,
+                    'tanggal'           => $tanggal,
+                    'foto'              => $foto
+
+
+                );
+
+
+                $where = array(
+                    'id'            => $id
+                );
+                $this->m_prestasi->update_data($where, $data, 'prestasi');
+                $this->session->set_flashdata('flash', 'Diubah');
+                redirect('prestasi/index');
             } else {
                 $foto = $this->upload->data('file_name');
             }
@@ -107,8 +139,8 @@ class Prestasi extends CI_Controller
         $data = array(
 
             'id'                => $id,
-            'title-1'           => $title_1,
-            'title-2'           => $title_2,
+            'nama_prestasi'           => $title_1,
+            'deskripsi'           => $title_2,
             'tanggal'           => $tanggal,
             'foto'              => $foto
 
@@ -121,7 +153,7 @@ class Prestasi extends CI_Controller
         );
         $this->m_prestasi->update_data($where, $data, 'prestasi');
         $this->session->set_flashdata('flash', 'Diubah');
-        redirect('guru/index');
+        redirect('prestasi/index');
     }
 
     public function detail($id)
