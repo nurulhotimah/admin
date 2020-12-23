@@ -18,7 +18,8 @@
 
                             <div class="form-group">
                                 <label>Deskripsi Berita</label>
-                                <input type="text" name="deskripsi" class="form-control" value="<?php echo $B->deskripsi ?>">
+                                <!-- <input type="text" name="deskripsi" class="form-control" value="<?php echo $B->deskripsi ?>"> -->
+                                <textarea type="text" class="form-control form-control-sm" name="mapel"><?php echo $B->deskripsi; ?> </textarea>
                             </div>
 
                             <div class="form-group">

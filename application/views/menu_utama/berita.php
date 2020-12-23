@@ -205,7 +205,7 @@
             <div class="container">
                 <div class="row my-3">
                     <div class="col-md-4 text-center">
-                        <img src="assets/img/logo.png" alt="" width="100px;">
+                        <img src="<?= base_url()?>assets_2/img/logo.png" alt="" width="100px;">
                         <h5 class="my-1">SMK PELAYARAN NUSANTARA KOTA SERANG</h5>
                     </div>
                     <div class="col-md-4">

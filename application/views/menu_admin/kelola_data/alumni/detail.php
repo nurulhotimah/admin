@@ -11,7 +11,7 @@
 
         <section class="content">
             <table class="table">
-                
+
                 <tr>
                     <th>Id</th>
                     <td><?php echo $detail->id ?></td>
@@ -32,7 +32,7 @@
 
                 <tr>
                     <td>
-                        <img src="<?php echo base_url(); ?>assets/foto/<?php echo $detail->foto; ?>" width="90" height="100">
+                        <img src="<?php echo base_url(); ?>assets/foto/alumni/<?php echo $detail->foto; ?>" width="90" height="100">
                     </td>
                     <td></td>
                 </tr>

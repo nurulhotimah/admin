@@ -79,7 +79,7 @@
                                         <td>
 
                                             <a href="<?php echo base_url(); ?>alumni/detail/<?= $A['id']; ?>" class="btn btn-success btn-icon-split btn-sm ">
-                                                <span class="text"><i class="fas fa-eye"></i></span>
+                                                <span class="text"><i class="fas fa-eye text-dark"></i></span>
                                             </a> |
 
                                             <a href="<?php echo base_url(); ?>alumni/edit/<?= $A['id']; ?>" class="btn btn-warning btn-icon-split btn-sm">

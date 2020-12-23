@@ -575,7 +575,7 @@
     </div>
 
     <div class="col-12 text-center my-4">
-        <a href="#" class="btn btn-primary btn-lg mb-5">Lihat semua Berita</a>
+        <a href="<?= base_url('page_info/lihat_berita'); ?>" class="btn btn-primary btn-lg mb-5">Lihat semua Berita</a>
     </div>
     </div>
     <!-- akhir berita -->
